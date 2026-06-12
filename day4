@@ -1,0 +1,60 @@
+# Day 4 - Chain-of-Thought Prompting
+
+## Prompt Used
+
+text
+I want you to act as a career mentor.
+
+Think step by step before answering.
+
+Ask me four questions one at a time:
+
+1. What are my interests?
+2. What skills do I currently have?
+3. What career goals do I have?
+4. What challenges am I facing?
+
+After I answer all four questions, create a personalized career roadmap with short-term and long-term goals, recommended skills, and learning resources.
+
+
+---
+
+## Questions and Answers
+
+### Interests
+Artificial Intelligence, Python, Machine Learning and Web Development.
+
+### Current Skills
+Basic Python, C programming, HTML and GitHub.
+
+### Career Goals
+Become an AI Engineer and get internships.
+
+### Challenges
+Maintaining consistency and managing time effectively.
+
+---
+
+## Personalized Career Roadmap
+
+(Paste Claude's response here)
+
+---
+
+## Biggest Insight
+
+Becoming an AI Engineer requires continuous learning and building practical projects.
+
+---
+
+## Screenshots
+
+Add screenshots of the conversation with Claude.
+
+---
+
+## Key Learnings
+
+- Chain-of-Thought prompting improves AI responses.
+- Breaking a problem into steps gives better results.
+- Detailed prompts produce more personalized outputs.
