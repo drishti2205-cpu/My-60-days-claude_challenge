@@ -1,0 +1,228 @@
+Day7/
+│
+├── day7.md
+├── prompt.png
+├── answers.png
+├── strategy.png
+└── workflow.png
+Day 7 - Claude Usage Strategy
+
+Objective
+
+The objective of Day 7 was to learn how to use Claude effectively and create a personalized AI usage strategy based on my profile and daily activities. I explored different Claude models and effort settings to understand when and how to use them efficiently.
+
+---
+
+Prompt Used
+
+You are a Claude AI Expert, Productivity Consultant, and AI Workflow Architect.
+
+Your goal is to recommend the best Claude model and effort settings for me based on my profile and daily tasks.
+
+First ask me these questions:
+
+1. What is your current situation?
+(Student / Professional / Freelancer / Founder)
+
+2. What are your primary activities?
+(Examples: Coding, Content Creation, Learning, Research, Marketing, Resume Building, Career Preparation, Business Planning)
+
+3. How often do you use Claude?
+(Occasionally / Daily / Heavy User)
+
+4. What type of outputs do you need most?
+(Fast Answers / Learning Support / Coding Help / Deep Research / Business Strategy / Creative Work)
+
+After collecting my answers:
+
+Think step by step.
+
+1. Analyze my profile.
+2. Analyze my typical use cases.
+3. Identify which Claude model fits me best.
+4. Identify when I should use Haiku, Sonnet, and Opus.
+5. Identify which effort setting I should use most often.
+6. Recommend situations where I should switch to High or Max effort.
+7. Suggest an optimal Claude workflow for my daily tasks.
+
+Finally generate:
+
+# My Claude Usage Strategy
+
+## Recommended Primary Model
+
+## Why This Model Fits Me
+
+## When to Use Haiku
+
+## When to Use Sonnet
+
+## When to Use Opus
+
+## Recommended Effort Level
+
+### Low
+
+### Standard
+
+### High
+
+### Max
+
+## My Personalized Claude Workflow
+
+Provide a table:
+Task | Best Model | Best Effort | Reason
+
+## Biggest Mistakes I Should Avoid
+
+## Final Recommendation
+
+If I could use only ONE model and ONE effort level for most of my work, what would you recommend and why?
+
+Present the output in a clean, visual, beginner-friendly format.
+
+---
+
+Questions Asked by Claude
+
+1. What is your current situation?
+2. What are your primary activities?
+3. How often do you use Claude?
+4. What type of outputs do you need most?
+
+---
+
+My Answers
+
+Current Situation
+
+Student
+
+Primary Activities
+
+- Learning
+- Coding
+- Research
+- Career Preparation
+- Resume Building
+- Content Creation
+
+Usage Frequency
+
+Daily
+
+Required Outputs
+
+- Learning Support
+- Coding Help
+- Deep Research
+- Fast Answers
+- Creative Work
+
+---
+
+My Claude Usage Strategy
+
+Recommended Primary Model
+
+Claude Sonnet
+
+Why This Model Fits Me
+
+Claude Sonnet provides the best balance between speed, reasoning ability, coding support, and learning assistance. It is suitable for students who work on coding, research, and career preparation.
+
+---
+
+When to Use Haiku
+
+- Quick questions
+- Summarization
+- Fast answers
+- Simple tasks
+
+---
+
+When to Use Sonnet
+
+- Coding
+- Learning concepts
+- Resume building
+- Research
+- Project planning
+- Daily use
+
+---
+
+When to Use Opus
+
+- Deep research
+- Complex reasoning
+- Business strategy
+- Long-form content
+- Advanced projects
+
+---
+
+Recommended Effort Level
+
+Low
+
+Simple and quick tasks.
+
+Standard
+
+Daily learning and coding tasks.
+
+High
+
+Research and project planning.
+
+Max
+
+Complex reasoning and advanced analysis.
+
+---
+
+Personalized Workflow
+
+Task| Best Model| Best Effort| Reason
+Learning| Sonnet| Standard| Balanced performance
+Coding| Sonnet| Standard| Strong coding capabilities
+Research| Sonnet| High| Better reasoning
+Resume Building| Sonnet| Standard| High-quality outputs
+Content Creation| Sonnet| Standard| Creative and efficient
+Deep Analysis| Opus| Max| Advanced reasoning
+Quick Questions| Haiku| Low| Faster responses
+
+---
+
+Key Learnings
+
+- Different Claude models are suitable for different tasks.
+- Sonnet is ideal for everyday use.
+- Haiku is useful for quick tasks.
+- Opus is suitable for advanced reasoning.
+- Choosing the right effort level improves efficiency and output quality.
+- Context and prompt quality significantly affect AI responses.
+
+---
+
+Screenshots
+
+Add screenshots of:
+
+- Prompt Used
+- Questions Asked by Claude
+- My Answers
+- Generated Workflow
+- Final Strategy
+
+---
+
+Conclusion
+
+Day 7 helped me understand how to choose the right Claude model and effort settings for different tasks. I learned how to optimize AI usage and create a personalized workflow that improves productivity and learning efficiency.
+  git add .
+git commit -m "Completed Day 7 - Claude Usage Strategy"
+git push origin main
