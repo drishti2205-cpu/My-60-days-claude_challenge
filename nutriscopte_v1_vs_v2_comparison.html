@@ -1,0 +1,144 @@
+
+<style>
+  .wrap { padding: 1rem 0; font-size: 14px; color: var(--color-text-primary); }
+  .header-row { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 0; margin-bottom: 0; }
+  .header-cell { padding: 10px 16px; font-weight: 500; font-size: 13px; }
+  .header-cell.v1 { background: var(--color-background-secondary); color: var(--color-text-secondary); border-radius: var(--border-radius-md) var(--border-radius-md) 0 0; border: 0.5px solid var(--color-border-tertiary); border-bottom: none; margin-right: 4px; }
+  .header-cell.v2 { background: #185FA5; color: #E6F1FB; border-radius: var(--border-radius-md) var(--border-radius-md) 0 0; border: 0.5px solid #185FA5; border-bottom: none; }
+  .section { margin-bottom: 2px; }
+  .section-label { grid-column: 1 / -1; padding: 8px 16px 4px; font-size: 11px; font-weight: 500; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.6px; background: var(--color-background-tertiary); border-left: 2px solid var(--color-border-secondary); border-radius: 0; }
+  .row { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 0; border-bottom: 0.5px solid var(--color-border-tertiary); }
+  .row:last-child { border-bottom: none; }
+  .cell { padding: 9px 16px; font-size: 13px; color: var(--color-text-primary); }
+  .cell.feature { color: var(--color-text-secondary); font-size: 12.5px; }
+  .cell.v1-cell { background: var(--color-background-secondary); border-right: 0.5px solid var(--color-border-tertiary); }
+  .cell.v2-cell { background: #E6F1FB; }
+  @media (prefers-color-scheme: dark) { .cell.v2-cell { background: #042C53; } .header-cell.v2 { background: #0C447C; color: #B5D4F4; border-color: #0C447C; } }
+  .yes { color: #0F6E56; font-weight: 500; }
+  .no { color: #888780; }
+  .new-badge { display: inline-block; background: #185FA5; color: #E6F1FB; font-size: 10px; font-weight: 500; padding: 1px 6px; border-radius: 4px; margin-left: 6px; vertical-align: middle; }
+  @media (prefers-color-scheme: dark) { .new-badge { background: #0C447C; color: #85B7EB; } .yes { color: #1D9E75; } }
+  .count-pill { display: inline-block; font-size: 12px; font-weight: 500; padding: 1px 8px; border-radius: 20px; }
+  .count-v1 { background: var(--color-background-tertiary); color: var(--color-text-secondary); }
+  .count-v2 { background: #B5D4F4; color: #0C447C; }
+  @media (prefers-color-scheme: dark) { .count-v2 { background: #0C447C; color: #85B7EB; } }
+  .chart-section { margin-top: 1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .metric-card { background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; }
+  .metric-label { font-size: 12px; color: var(--color-text-secondary); margin-bottom: 4px; }
+  .metric-val { font-size: 22px; font-weight: 500; color: var(--color-text-primary); }
+  .metric-sub { font-size: 12px; color: var(--color-text-secondary); margin-top: 2px; }
+  .bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 12px; }
+  .bar-label { width: 110px; color: var(--color-text-secondary); flex-shrink: 0; }
+  .bar-track { flex: 1; background: var(--color-background-tertiary); border-radius: 4px; height: 8px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 4px; }
+  .bar-val { width: 36px; text-align: right; color: var(--color-text-primary); font-weight: 500; flex-shrink: 0; }
+</style>
+<div class="wrap">
+  <h2 style="font-size:18px;font-weight:500;margin-bottom:0.25rem">NutriScope v1 vs v2</h2>
+  <p style="font-size:13px;color:var(--color-text-secondary);margin-bottom:1.25rem">Feature-by-feature comparison of the original and enhanced builds</p>
+
+  <div class="header-row">
+    <div class="header-cell" style="background:transparent;border:none"></div>
+    <div class="header-cell v1">v1 — MVP</div>
+    <div class="header-cell v2">v2 — Enhanced</div>
+  </div>
+
+  <!-- PAGES & NAVIGATION -->
+  <div class="section-label">Pages & navigation</div>
+  <div class="row"><div class="cell feature">Number of pages</div><div class="cell v1-cell"><span class="count-pill count-v1">4</span></div><div class="cell v2-cell"><span class="count-pill count-v2">7</span></div></div>
+  <div class="row"><div class="cell feature">Profile</div><div class="cell v1-cell"><span class="yes">✓</span></div><div class="cell v2-cell"><span class="yes">✓</span> + Goal & Health Condition fields <span class="new-badge">new</span></div></div>
+  <div class="row"><div class="cell feature">Food Log</div><div class="cell v1-cell"><span class="yes">✓</span></div><div class="cell v2-cell"><span class="yes">✓</span> + CSV import/export, Clear All</div></div>
+  <div class="row"><div class="cell feature">Dashboard</div><div class="cell v1-cell"><span class="yes">✓</span></div><div class="cell v2-cell"><span class="yes">✓</span> + BMI widget, radar chart, micro bars</div></div>
+  <div class="row"><div class="cell feature">2-Day Meal Planner</div><div class="cell v1-cell"><span class="no">—</span></div><div class="cell v2-cell"><span class="yes">✓</span> <span class="new-badge">new</span></div></div>
+  <div class="row"><div class="cell feature">Risk Analysis</div><div class="cell v1-cell"><span class="no">—</span></div><div class="cell v2-cell"><span class="yes">✓</span> <span class="new-badge">new</span></div></div>
+  <div class="row"><div class="cell feature">Recommendations</div><div class="cell v1-cell"><span class="yes">✓</span> 3 sections</div><div class="cell v2-cell"><span class="yes">✓</span> 5 sections <span class="new-badge">expanded</span></div></div>
+  <div class="row"><div class="cell feature">Sources & methodology</div><div class="cell v1-cell"><span class="no">—</span></div><div class="cell v2-cell"><span class="yes">✓</span> <span class="new-badge">new</span></div></div>
+
+  <!-- FOOD DATABASE -->
+  <div class="section-label">Food database</div>
+  <div class="row"><div class="cell feature">Total foods</div><div class="cell v1-cell"><span class="count-pill count-v1">20</span></div><div class="cell v2-cell"><span class="count-pill count-v2">60</span></div></div>
+  <div class="row"><div class="cell feature">Indian staples</div><div class="cell v1-cell"><span class="yes">✓</span> Rice, Roti, Dal, Idli, Dosa…</div><div class="cell v2-cell"><span class="yes">✓</span> + Moong Dal, Urad Dal, Sorghum, Drumstick, Amla, Fenugreek</div></div>
+  <div class="row"><div class="cell feature">Nuts & seeds</div><div class="cell v1-cell"><span class="no">—</span></div><div class="cell v2-cell"><span class="yes">✓</span> Almonds, Walnuts, Peanuts, Chia, Flaxseeds, Pumpkin, Sunflower <span class="new-badge">new</span></div></div>
+  <div class="row"><div class="cell feature">Vegetables & fruits</div><div class="cell v1-cell">Spinach, Banana, Apple, Potato</div><div class="cell v2-cell">+ Broccoli, Carrot, Tomato, Beetroot, Sweet Potato, Peas, Orange, Papaya, Mango, Guava <span class="new-badge">new</span></div></div>
+  <div class="row"><div class="cell feature">Non-veg options</div><div class="cell v1-cell">Egg, Chicken, Fish</div><div class="cell v2-cell">+ Mutton, Prawn, Tuna <span class="new-badge">new</span></div></div>
+  <div class="row"><div class="cell feature">Dairy & fats</div><div class="cell v1-cell">Milk, Paneer, Curd</div><div class="cell v2-cell">+ Tofu, Soya Milk, Butter, Ghee, Honey <span class="new-badge">new</span></div></div>
+  <div class="row"><div class="cell feature">Units supported</div><div class="cell v1-cell"><span class="count-pill count-v1">5</span> g, ml, piece, cup, tbsp</div><div class="cell v2-cell"><span class="count-pill count-v2">6</span> + bowl</div></div>
+
+  <!-- NUTRIENTS TRACKED -->
+  <div class="section-label">Nutrients tracked</div>
+  <div class="row"><div class="cell feature">Total nutrients</div><div class="cell v1-cell"><span class="count-pill count-v1">10</span></div><div class="cell v2-cell"><span class="count-pill count-v2">16</span></div></div>
+  <div class="row"><div class="cell feature">Macros (cal, protein, carbs, fat, fiber)</div><div class="cell v1-cell"><span class="yes">✓</span></div><div class="cell v2-cell"><span class="yes">✓</span></div></div>
+  <div class="row"><div class="cell feature">Iron, Calcium, Vit C, Vit D, B12</div><div class="cell v1-cell"><span class="yes">✓</span></div><div class="cell v2-cell"><span class="yes">✓</span></div></div>
+  <div class="row"><div class="cell feature">Zinc, Magnesium, Potassium</div><div class="cell v1-cell"><span class="no">—</span></div><div class="cell v2-cell"><span class="yes">✓</span> <span class="new-badge">new</span></div></div>
+  <div class="row"><div class="cell feature">Folate, Vitamin A, Vitamin K</div><div class="cell v1-cell"><span class="no">—</span></div><div class="cell v2-cell"><span class="yes">✓</span> <span class="new-badge">new</span></div></div>
+
+  <!-- CALCULATIONS -->
+  <div class="section-label">Calculations & targets</div>
+  <div class="row"><div class="cell feature">BMR / TDEE (Harris-Benedict)</div><div class="cell v1-cell"><span class="yes">✓</span></div><div class="cell v2-cell"><span class="yes">✓</span></div></div>
+  <div class="row"><div class="cell feature">Goal-adjusted calorie target</div><div class="cell v1-cell"><span class="no">—</span></div><div class="cell v2-cell"><span class="yes">✓</span> Lose −500, Gain +300, Muscle +200 <span class="new-badge">new</span></div></div>
+  <div class="row"><div class="cell feature">BMI calculation & category</div><div class="cell v1-cell"><span class="no">—</span></div><div class="cell v2-cell"><span class="yes">✓</span> <span class="new-badge">new</span></div></div>
+  <div class="row"><div class="cell feature">Condition-adjusted targets</div><div class="cell v1-cell"><span class="no">—</span></div><div class="cell v2-cell"><span class="yes">✓</span> Pregnancy, anaemia, diabetes targets <span class="new-badge">new</span></div></div>
+  <div class="row"><div class="cell feature">Micronutrient RDA targets</div><div class="cell v1-cell">5 nutrients</div><div class="cell v2-cell">11 nutrients (ICMR-NIN 2020)</div></div>
+
+  <!-- CHARTS & DASHBOARD -->
+  <div class="section-label">Charts & dashboard</div>
+  <div class="row"><div class="cell feature">Energy ring (donut)</div><div class="cell v1-cell"><span class="yes">✓</span></div><div class="cell v2-cell"><span class="yes">✓</span></div></div>
+  <div class="row"><div class="cell feature">Macro split donut</div><div class="cell v1-cell"><span class="yes">✓</span></div><div class="cell v2-cell"><span class="yes">✓</span></div></div>
+  <div class="row"><div class="cell feature">Macro progress bars</div><div class="cell v1-cell"><span class="yes">✓</span></div><div class="cell v2-cell"><span class="yes">✓</span></div></div>
+  <div class="row"><div class="cell feature">Micronutrient radar chart</div><div class="cell v1-cell"><span class="no">—</span></div><div class="cell v2-cell"><span class="yes">✓</span> 8-axis radar <span class="new-badge">new</span></div></div>
+  <div class="row"><div class="cell feature">Micro completion bars</div><div class="cell v1-cell"><span class="no">—</span></div><div class="cell v2-cell"><span class="yes">✓</span> <span class="new-badge">new</span></div></div>
+  <div class="row"><div class="cell feature">Risk score bar chart</div><div class="cell v1-cell"><span class="no">—</span></div><div class="cell v2-cell"><span class="yes">✓</span> Horizontal bar, per-risk scoring <span class="new-badge">new</span></div></div>
+  <div class="row"><div class="cell feature">Top deficiencies & excesses</div><div class="cell v1-cell"><span class="yes">✓</span> up to 4</div><div class="cell v2-cell"><span class="yes">✓</span> up to 5, more nutrients</div></div>
+  <div class="row"><div class="cell feature">Full nutrient table</div><div class="cell v1-cell">10 rows</div><div class="cell v2-cell">16 rows</div></div>
+
+  <!-- RISK & RECOMMENDATIONS -->
+  <div class="section-label">Risk & recommendations</div>
+  <div class="row"><div class="cell feature">Food additions</div><div class="cell v1-cell"><span class="yes">✓</span> 4 rules</div><div class="cell v2-cell"><span class="yes">✓</span> 8+ rules, more precise</div></div>
+  <div class="row"><div class="cell feature">Smart swaps</div><div class="cell v1-cell"><span class="yes">✓</span> 4 rules</div><div class="cell v2-cell"><span class="yes">✓</span> 6 rules with rationale</div></div>
+  <div class="row"><div class="cell feature">Portion adjustments</div><div class="cell v1-cell"><span class="yes">✓</span></div><div class="cell v2-cell"><span class="yes">✓</span></div></div>
+  <div class="row"><div class="cell feature">Goal-specific tips</div><div class="cell v1-cell"><span class="no">—</span></div><div class="cell v2-cell"><span class="yes">✓</span> Maintain / Lose / Gain / Muscle <span class="new-badge">new</span></div></div>
+  <div class="row"><div class="cell feature">Condition-aware advice</div><div class="cell v1-cell"><span class="no">—</span></div><div class="cell v2-cell"><span class="yes">✓</span> Diabetes, hypertension, anaemia, pregnancy… <span class="new-badge">new</span></div></div>
+  <div class="row"><div class="cell feature">Health risk analysis</div><div class="cell v1-cell"><span class="no">—</span></div><div class="cell v2-cell"><span class="yes">✓</span> BMI, 10+ risk categories, scored <span class="new-badge">new</span></div></div>
+
+  <!-- SAFETY & PROVENANCE -->
+  <div class="section-label">Safety & data quality</div>
+  <div class="row"><div class="cell feature">Educational disclaimer</div><div class="cell v1-cell"><span class="no">—</span></div><div class="cell v2-cell"><span class="yes">✓</span> On profile + risk pages <span class="new-badge">new</span></div></div>
+  <div class="row"><div class="cell feature">Nutrition data sources cited</div><div class="cell v1-cell"><span class="no">—</span></div><div class="cell v2-cell"><span class="yes">✓</span> NIN/ICMR, USDA, FAO/WHO, IFCT 2017 <span class="new-badge">new</span></div></div>
+  <div class="row"><div class="cell feature">Methodology page</div><div class="cell v1-cell"><span class="no">—</span></div><div class="cell v2-cell"><span class="yes">✓</span> Formulas, RDA basis, limitations <span class="new-badge">new</span></div></div>
+
+  <!-- SUMMARY METRICS -->
+  <div class="chart-section">
+    <div class="metric-card">
+      <div class="metric-label">Foods in database</div>
+      <div class="metric-val">20 → 60</div>
+      <div class="metric-sub">3× increase</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Nutrients tracked</div>
+      <div class="metric-val">10 → 16</div>
+      <div class="metric-sub">6 new micronutrients</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Pages / features</div>
+      <div class="metric-val">4 → 7</div>
+      <div class="metric-sub">Risk, Planner, Sources added</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Chart types</div>
+      <div class="metric-val">2 → 5</div>
+      <div class="metric-sub">+ Radar, micro bars, risk bar</div>
+    </div>
+  </div>
+
+  <div style="margin-top:1.5rem">
+    <p style="font-size:12px;color:var(--color-text-secondary);margin-bottom:12px;font-weight:500">Feature coverage at a glance</p>
+    <div class="bar-row"><div class="bar-label">Food variety</div><div class="bar-track"><div class="bar-fill" style="width:33%;background:#B5D4F4"></div></div><div class="bar-val" style="color:var(--color-text-secondary)">v1</div></div>
+    <div class="bar-row"><div class="bar-label"></div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#185FA5"></div></div><div class="bar-val">v2</div></div>
+    <div class="bar-row" style="margin-top:8px"><div class="bar-label">Nutrients tracked</div><div class="bar-track"><div class="bar-fill" style="width:62%;background:#9FE1CB"></div></div><div class="bar-val" style="color:var(--color-text-secondary)">v1</div></div>
+    <div class="bar-row"><div class="bar-label"></div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#0F6E56"></div></div><div class="bar-val">v2</div></div>
+    <div class="bar-row" style="margin-top:8px"><div class="bar-label">Chart types</div><div class="bar-track"><div class="bar-fill" style="width:40%;background:#FAC775"></div></div><div class="bar-val" style="color:var(--color-text-secondary)">v1</div></div>
+    <div class="bar-row"><div class="bar-label"></div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#BA7517"></div></div><div class="bar-val">v2</div></div>
+    <div class="bar-row" style="margin-top:8px"><div class="bar-label">Recommendation depth</div><div class="bar-track"><div class="bar-fill" style="width:38%;background:#F7C1C1"></div></div><div class="bar-val" style="color:var(--color-text-secondary)">v1</div></div>
+    <div class="bar-row"><div class="bar-label"></div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#A32D2D"></div></div><div class="bar-val">v2</div></div>
+  </div>
+</div>
