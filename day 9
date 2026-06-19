@@ -1,0 +1,210 @@
+# Day 9 – NutriScope: AI-Powered Nutrition Dashboard
+
+## Overview
+
+Built **NutriScope**, a complete single-file HTML nutrition tracking application and then enhanced it through iterative AI-assisted development.
+
+The project demonstrates how an MVP can be expanded into a more feature-rich application using structured prompts.
+
+---
+
+## Objective
+
+- Build an MVP version of NutriScope.
+- Enhance the application with additional functionality.
+- Compare both versions.
+- Understand iterative product development using AI.
+
+---
+
+## Technologies Used
+
+- HTML5
+- CSS3
+- JavaScript
+- Chart.js
+- Claude AI
+
+---
+
+# MVP Version Features
+
+### User Profile Inputs
+- Age
+- Gender
+- Height
+- Weight
+- Activity Level
+- Dietary Preference
+  - Vegetarian
+  - Non-Vegetarian
+  - Eggetarian
+
+### Food Logging
+- Add food items
+- Quantity selection
+- Unit selection
+- Editable table
+- Remove entries
+
+### Food Database (20 Foods)
+1. Rice
+2. Roti
+3. Dal
+4. Paneer
+5. Curd
+6. Chana
+7. Rajma
+8. Banana
+9. Apple
+10. Milk
+11. Oats
+12. Bread
+13. Egg
+14. Chicken
+15. Fish
+16. Potato
+17. Poha
+18. Idli
+19. Dosa
+20. Spinach
+
+### Nutrients Tracked
+- Calories
+- Protein
+- Carbohydrates
+- Fat
+- Fiber
+- Iron
+- Calcium
+- Vitamin C
+- Vitamin D
+- Vitamin B12
+
+### Calculations
+- Energy requirements
+- Macro targets
+- Micronutrient targets
+- Percentage completion
+
+### Dashboard
+- Energy progress
+- Macro charts
+- Top deficiencies
+- Top excesses
+- Nutrient summary table
+
+### Recommendations
+- Food additions
+- Food swaps
+- Portion adjustments
+
+### UI Features
+- Dark theme
+- Premium SaaS-inspired design
+- Responsive layout
+- Modern cards
+- Chart.js visualizations
+- Single HTML file
+- No backend
+
+---
+
+# Enhanced Version Features
+
+## Added Functionality
+
+### CSV Upload Support
+
+Users can upload food data through CSV files.
+
+### Expanded Food Database
+
+Added 40 additional food items for improved coverage.
+
+### Additional Micronutrients
+
+Expanded nutrient tracking beyond the MVP.
+
+### 2-Day Meal Planner
+
+Provides sample meal plans for two days.
+
+### Risk Analysis
+
+Identifies potential nutrient deficiencies and excesses.
+
+### Educational Disclaimer
+
+Provides informational guidance and responsible usage notice.
+
+### Nutrition Sources
+
+Displays nutritional information references.
+
+### Improved Charts
+
+Enhanced visual analytics and dashboard experience.
+
+### Advanced Recommendations
+
+Smarter suggestions based on dietary preference and nutrient status.
+
+---
+
+# Comparison
+
+| Feature | MVP Version | Enhanced Version |
+|-----------|------------|----------------|
+| Foods | 20 | 60 |
+| Charts | Basic | Advanced |
+| Micronutrients | Basic | Extended |
+| Meal Planner | No | Yes |
+| Risk Analysis | No | Yes |
+| CSV Upload | No | Yes |
+| Nutrition Sources | No | Yes |
+| Recommendations | Basic | Advanced |
+
+---
+
+# Project Structure
+
+```
+Day9/
+│
+├── nutriscope_mvp.html
+├── nutriscope_enhanced.html
+├── comparison_notes.md
+├── mvp_screenshot.png
+├── enhanced_screenshot.png
+└── day9.md
+```
+
+---
+
+# Key Learnings
+
+- Prompt engineering for iterative development.
+- Building complete applications with AI assistance.
+- Single-file HTML application architecture.
+- Nutrition dashboard design.
+- Data visualization using Chart.js.
+- Feature enhancement through structured prompts.
+- Comparing MVP and improved versions.
+
+---
+
+# Deliverables
+
+- ✅ NutriScope MVP HTML application
+- ✅ Enhanced NutriScope HTML application
+- ✅ Screenshots of both versions
+- ✅ Comparison notes
+- ✅ Documentation
+- ✅ GitHub repository update
+
+---
+
+# Conclusion
+
+This project demonstrates how AI-assisted iterative development can transform a basic MVP into a more comprehensive nutrition analytics platform while maintaining a lightweight, single-file architecture.
