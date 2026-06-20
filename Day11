@@ -1,0 +1,109 @@
+Day11 - ATS Resume Optimizer & Resume Generator
+
+📌 Project Overview
+
+This project focuses on optimizing an existing resume for maximum ATS (Applicant Tracking System) compatibility and recruiter relevance using AI. The resume is tailored according to a target job description while maintaining 100% factual accuracy.
+
+🎯 Objective
+
+- Analyze an existing resume.
+- Compare it with a target Job Description.
+- Identify missing keywords and skills.
+- Generate an ATS-friendly resume.
+- Improve recruiter visibility and job application success.
+
+📂 Inputs
+
+1. Existing Resume
+2. Target Job Description
+
+⚙️ Tools Used
+
+- Claude AI
+- LinkedIn
+- Naukri
+- Indeed
+- Company Career Pages
+- Microsoft Word
+- Google Docs
+- FlowCV
+- Overleaf
+- Canva
+
+🚀 Process
+
+1. Upload the existing resume.
+2. Obtain a target Job Description.
+3. Use the ATS Resume Optimizer prompt.
+4. Generate ATS Match Score.
+5. Perform Gap Analysis.
+6. Identify missing keywords and skills.
+7. Generate an optimized ATS-friendly resume.
+8. Save the final resume.
+9. Capture screenshots of the analysis and output.
+
+📊 Outputs
+
+ATS Match Score
+
+- Overall Match Score
+- Keyword Match Score
+- Skills Match Score
+- Experience Match Score
+
+Gap Analysis
+
+- Missing Keywords
+- Missing Skills
+- Improvement Opportunities
+
+Updated Resume Sections
+
+- Professional Summary
+- Skills
+- Experience
+- Projects
+- Education
+- Certifications
+- Achievements
+
+📁 Repository Structure
+
+Day11/
+│
+├── Original_Resume.pdf
+├── Target_Job_Description.txt
+├── ATS_Analysis_Screenshot.png
+├── Gap_Analysis_Screenshot.png
+├── Optimized_Resume.pdf
+├── Optimized_Resume_Screenshot.png
+└── README.md
+
+Key Features
+
+- ATS-friendly formatting
+- Recruiter-focused optimization
+- Keyword alignment with Job Description
+- No fabricated information
+- Professional resume structure
+- Ready for Word, Google Docs, FlowCV, Overleaf, and Canva
+
+Learning Outcomes
+
+- Understanding ATS systems
+- Resume keyword optimization
+- Gap analysis techniques
+- Professional resume writing
+- AI-assisted career development
+
+Author
+
+Drishti
+
+Day
+
+Day 11
+
+Project Title
+
+ATS Resume Optimizer & Resume Generator
