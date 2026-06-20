@@ -1,0 +1,81 @@
+🚀 AI Personal Portfolio Website
+
+A modern and responsive personal portfolio website built using HTML, Tailwind CSS, and JavaScript. This portfolio showcases my skills, projects, achievements, and contact information with an elegant UI and Dark/Light mode support.
+
+✨ Features
+
+- Modern and premium design
+- Fully responsive layout
+- Dark and Light mode toggle
+- Typing animation in Hero section
+- Animated skill bars
+- Projects showcase cards
+- Achievements and Certifications section
+- Contact section with direct links
+- Smooth scrolling animations
+- Active navigation highlighting
+- SEO optimized
+- Single HTML file
+- Tailwind CSS CDN integration
+
+🛠️ Technologies Used
+
+- HTML5
+- Tailwind CSS
+- JavaScript
+- Font Awesome
+- Google Fonts
+
+📂 Project Structure
+
+Day10/
+│── index.html
+│── README.md
+│── screenshots/
+
+📸 Screenshots
+
+Add screenshots of:
+
+- Hero Section
+- About Me
+- Skills Section
+- Projects Section
+- Contact Section
+- Dark Mode Interface
+
+🚀 Getting Started
+
+1. Clone the repository:
+
+git clone https://github.com/yourusername/Day10.git
+
+2. Open the project folder.
+
+3. Run "index.html" in your browser.
+
+🎯 Purpose
+
+This project was created as part of the 60 Days AI Challenge to build a professional online portfolio and strengthen web development and personal branding skills.
+
+🌟 Future Improvements
+
+- Resume download functionality
+- Project filtering
+- Blog section
+- More animations and transitions
+- Backend contact form integration
+
+👩‍💻 Author
+
+Drishti
+
+AI & Data Science Enthusiast | GenAI Builder | B.Tech Student
+
+Connect with Me
+
+LinkedIn: https://linkedin.com/in/your-linkedin-profile
+
+GitHub: https://github.com/your-github-username
+
+⭐ If you found this project interesting, consider giving it a star!
