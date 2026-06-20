@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drishti — AI & Data Science Enthusiast | GenAI Builder</title>
+<meta name="description" content="Portfolio of Drishti, a B.Tech student and AI & Data Science enthusiast building intelligent applications, GenAI tools, and data-driven solutions.">
+<meta name="keywords" content="Drishti, AI Portfolio, Data Science, GenAI Builder, Machine Learning, Python Developer, B.Tech Student">
+<meta name="author" content="Drishti">
+<meta property="og:title" content="Drishti — AI & Data Science Enthusiast | GenAI Builder">
+<meta property="og:description" content="B.Tech student building intelligent AI & Data Science applications.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0B0E14">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>◇</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        colors: {
+          ink: { 950:'#0B0E14', 900:'#0F1320', 800:'#131722', 700:'#1A1F2C', 600:'#1F2430', 500:'#2A3140' },
+          paper: { 50:'#FAFAF8', 100:'#F3F2EE', 200:'#E9E7E0' },
+          violet: { 400:'#9B86FF', 500:'#7C5CFC', 600:'#6A47E8', 700:'#5736C9' },
+          teal: { 300:'#5EEAD4', 400:'#2DD4BF', 500:'#14B8A6', 600:'#0F9C8C' },
+        },
+        fontFamily: {
+          display: ['"Space Grotesk"','sans-serif'],
+          body: ['"Inter"','sans-serif'],
+          mono: ['"JetBrains Mono"','monospace'],
+        },
+      }
+    }
+  }
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; }
+  .font-display { font-family: 'Space Grotesk', sans-serif; }
+  .font-mono { font-family: 'JetBrains Mono', monospace; }
+
+  ::selection { background: #7C5CFC; color: #fff; }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #7C5CFC55; border-radius: 8px; }
+  ::-webkit-scrollbar-thumb:hover { background: #7C5CFC99; }
+
+  /* Reveal on scroll */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); }
+  .reveal.in-view { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: .08s; }
+  .reveal-delay-2 { transition-delay: .16s; }
+  .reveal-delay-3 { transition-delay: .24s; }
+  .reveal-delay-4 { transition-delay: .32s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+    * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+  }
+
+  /* Nav active underline */
+  .nav-link { position: relative; }
+  .nav-link::after {
+    content: ''; position: absolute; left: 0; bottom: -4px; height: 1.5px; width: 0%;
+    background: linear-gradient(90deg, #7C5CFC, #2DD4BF); transition: width .3s ease;
+  }
+  .nav-link.active::after, .nav-link:hover::after { width: 100%; }
+  .nav-link.active { color: #9B86FF; }
+  .dark .nav-link.active { color: #9B86FF; }
+
+  /* Skill bar fill animation */
+  .skill-fill { width: 0%; transition: width 1.4s cubic-bezier(.16,1,.3,1); }
+
+  /* Typing cursor */
+  .type-cursor { display:inline-block; width: 3px; margin-left: 2px; background: #2DD4BF; animation: blink 1s step-end infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  /* Card hover lift */
+  .card-hover { transition: transform .35s cubic-bezier(.16,1,.3,1), border-color .35s ease, box-shadow .35s ease; }
+  .card-hover:hover { transform: translateY(-6px); box-shadow: 0 20px 50px -20px rgba(124,92,252,0.35); }
+
+  /* Glow blobs */
+  .glow { filter: blur(90px); }
+
+  /* Tag pill */
+  .tag { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.02em; }
+
+  /* Form focus ring */
+  .field:focus { outline: none; box-shadow: 0 0 0 2px #2DD4BF55; border-color: #2DD4BF; }
+
+  /* gradient text */
+  .grad-text { background: linear-gradient(90deg,#9B86FF,#5EEAD4); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+  #network-canvas { width: 100%; height: 100%; display:block; }
+
+  .toggle-knob { transition: transform .35s cubic-bezier(.16,1,.3,1); }
+  .dark .toggle-knob { transform: translateX(20px); }
+
+  /* mobile menu */
+  .mobile-menu { transition: max-height .4s ease, opacity .3s ease; }
+</style>
+</head>
+
+<body class="bg-paper-50 text-ink-900 dark:bg-ink-950 dark:text-paper-100 font-body antialiased transition-colors duration-500">
+
+<!-- ===================== NAVBAR ===================== -->
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-paper-50/70 dark:bg-ink-950/70 border-b border-ink-900/5 dark:border-paper-100/5">
+  <div class="max-w-6xl mx-auto px-6 lg:px-10 flex items-center justify-between h-16">
+    <a href="#home" class="font-display font-bold text-lg tracking-tight">
+      <span class="grad-text">D</span><span class="text-ink-900 dark:text-paper-100">rishti</span><span class="text-teal-400">.</span>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+      <a href="#about" class="nav-link" data-nav>About</a>
+      <a href="#skills" class="nav-link" data-nav>Skills</a>
+      <a href="#projects" class="nav-link" data-nav>Projects</a>
+      <a href="#achievements" class="nav-link" data-nav>Achievements</a>
+      <a href="#contact" class="nav-link" data-nav>Contact</a>
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <!-- Theme toggle -->
+      <button id="theme-toggle" aria-label="Toggle dark and light mode" class="relative w-11 h-6 rounded-full bg-ink-900/10 dark:bg-paper-100/10 border border-ink-900/10 dark:border-paper-100/15 flex items-center px-0.5">
+        <span class="toggle-knob w-5 h-5 rounded-full bg-gradient-to-br from-violet-500 to-teal-400 block"></span>
+      </button>
+
+      <button id="menu-btn" aria-label="Open menu" class="md:hidden w-9 h-9 flex flex-col items-center justify-center gap-1.5">
+        <span class="w-5 h-[1.5px] bg-ink-900 dark:bg-paper-100"></span>
+        <span class="w-5 h-[1.5px] bg-ink-900 dark:bg-paper-100"></span>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="mobile-menu md:hidden overflow-hidden max-h-0 opacity-0 px-6 pb-0 bg-paper-50 dark:bg-ink-950 border-b border-ink-900/5 dark:border-paper-100/5">
+    <div class="flex flex-col gap-4 py-4 text-sm font-medium">
+      <a href="#about" data-nav>About</a>
+      <a href="#skills" data-nav>Skills</a>
+      <a href="#projects" data-nav>Projects</a>
+      <a href="#achievements" data-nav>Achievements</a>
+      <a href="#contact" data-nav>Contact</a>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section id="home" class="relative min-h-screen flex items-center pt-16 overflow-hidden">
+
+  <!-- ambient glow blobs -->
+  <div class="absolute -top-32 -left-32 w-96 h-96 bg-violet-500/25 dark:bg-violet-500/20 rounded-full glow"></div>
+  <div class="absolute bottom-0 -right-24 w-96 h-96 bg-teal-400/25 dark:bg-teal-400/15 rounded-full glow"></div>
+
+  <!-- neural network canvas background -->
+  <canvas id="network-canvas" class="absolute inset-0 z-0 opacity-60 dark:opacity-70"></canvas>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-10 w-full grid lg:grid-cols-[1.3fr_0.7fr] gap-12 items-center">
+    <div>
+      <p class="font-mono text-xs tracking-[0.25em] text-teal-500 dark:text-teal-300 mb-5 reveal in-view">
+        <span class="text-violet-500 dark:text-violet-400">&gt;</span> whoami --location India
+      </p>
+
+      <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight reveal in-view reveal-delay-1">
+        Hi, I'm <span class="grad-text">Drishti</span>
+      </h1>
+
+      <p class="mt-5 font-display text-xl sm:text-2xl text-ink-700 dark:text-paper-200 h-9 reveal in-view reveal-delay-2">
+        <span id="typed-text"></span><span class="type-cursor h-6 align-middle"></span>
+      </p>
+
+      <p class="mt-6 max-w-xl text-ink-700/80 dark:text-paper-200/70 leading-relaxed reveal in-view reveal-delay-3">
+        I am a B.Tech student passionate about Artificial Intelligence, Data Science, and Generative AI. I enjoy building intelligent applications and solving real-world problems through technology — continuously exploring machine learning, analytics, and modern AI tools to create impactful solutions.
+      </p>
+
+      <div class="mt-8 flex flex-wrap items-center gap-4 reveal in-view reveal-delay-4">
+        <a href="#projects" class="px-6 py-3 rounded-lg bg-gradient-to-r from-violet-500 to-violet-600 text-white text-sm font-semibold shadow-lg shadow-violet-500/25 hover:shadow-violet-500/40 hover:-translate-y-0.5 transition-all duration-300">
+          View Projects
+        </a>
+        <a href="#contact" class="px-6 py-3 rounded-lg border border-ink-900/15 dark:border-paper-100/20 text-sm font-semibold hover:border-teal-400 hover:text-teal-500 dark:hover:text-teal-300 transition-all duration-300">
+          Get in Touch
+        </a>
+
+        <div class="flex items-center gap-3 ml-1">
+          <a href="https://www.linkedin.com/in/drishti-906275404" target="_blank" rel="noopener" aria-label="LinkedIn" class="w-10 h-10 rounded-full border border-ink-900/15 dark:border-paper-100/15 flex items-center justify-center hover:border-violet-500 hover:text-violet-500 dark:hover:text-violet-400 transition-colors">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+          </a>
+          <a href="https://github.com/drishti2205-cpu" target="_blank" rel="noopener" aria-label="GitHub" class="w-10 h-10 rounded-full border border-ink-900/15 dark:border-paper-100/15 flex items-center justify-center hover:border-teal-400 hover:text-teal-500 dark:hover:text-teal-300 transition-colors">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.74.5 12.03c0 5.05 3.29 9.33 7.85 10.84.57.1.78-.25.78-.55v-2.16c-3.2.7-3.87-1.36-3.87-1.36-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.03 1.78 2.71 1.26 3.37.97.1-.75.4-1.27.73-1.56-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.58.24 2.75.12 3.04.74.81 1.19 1.83 1.19 3.09 0 4.41-2.7 5.39-5.27 5.67.42.36.78 1.08.78 2.17v3.22c0 .31.21.66.79.55A10.53 10.53 0 0 0 23.5 12.03C23.5 5.74 18.27.5 12 .5z"/></svg>
+          </a>
+          <a href="mailto:your-drishtidrishti2205@gmail.com" aria-label="Email" class="w-10 h-10 rounded-full border border-ink-900/15 dark:border-paper-100/15 flex items-center justify-center hover:border-violet-500 hover:text-violet-500 dark:hover:text-violet-400 transition-colors">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18v12H3z"/><path d="m3 7 9 6 9-6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- right side: terminal-style status card -->
+    <div class="reveal in-view reveal-delay-2 hidden lg:block">
+      <div class="rounded-2xl border border-ink-900/10 dark:border-paper-100/10 bg-white/60 dark:bg-ink-800/60 backdrop-blur-xl p-5 shadow-2xl shadow-violet-500/5">
+        <div class="flex items-center gap-1.5 mb-4">
+          <span class="w-2.5 h-2.5 rounded-full bg-red-400/70"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-yellow-400/70"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-green-400/70"></span>
+          <span class="ml-auto font-mono text-[10px] text-ink-700/50 dark:text-paper-200/40">status.json</span>
+        </div>
+        <pre class="font-mono text-xs leading-6 text-ink-700 dark:text-paper-200/80 whitespace-pre-wrap">{
+  "name": "Drishti",
+  "role": "GenAI Builder",
+  "based_in": "India",
+  "focus": [
+    "Machine Learning",
+    "GenAI",
+    "Data Analytics"
+  ],
+  "currently": "SIH 2025",
+  "status": "<span class="text-teal-500 dark:text-teal-300">building ●</span>"
+}</pre>
+      </div>
+    </div>
+  </div>
+
+  <a href="#about" class="absolute bottom-8 left-1/2 -translate-x-1/2 text-ink-700/40 dark:text-paper-200/40 hover:text-teal-400 transition-colors animate-bounce">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </a>
+</section>
+
+<!-- ===================== ABOUT ===================== -->
+<section id="about" class="py-28 relative">
+  <div class="max-w-6xl mx-auto px-6 lg:px-10">
+    <div class="reveal flex items-center gap-3 mb-3">
+      <span class="font-mono text-xs text-violet-500 dark:text-violet-400">01</span>
+      <span class="h-px flex-1 max-w-[40px] bg-ink-900/15 dark:bg-paper-100/15"></span>
+      <span class="font-mono text-xs uppercase tracking-widest text-ink-700/60 dark:text-paper-200/50">About Me</span>
+    </div>
+
+    <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-12 items-start">
+      <h2 class="reveal font-display text-3xl sm:text-4xl font-bold leading-tight">
+        Turning curiosity about <span class="grad-text">intelligent systems</span> into things people can use.
+      </h2>
+
+      <div class="reveal reveal-delay-1 space-y-5 text-ink-700/85 dark:text-paper-200/75 leading-relaxed">
+        <p>I am a B.Tech student passionate about Artificial Intelligence, Data Science, and Generative AI. I enjoy building intelligent applications and solving real-world problems through technology.</p>
+        <p>I am continuously exploring machine learning, analytics, and modern AI tools to create impactful solutions — from prediction systems to dashboards that turn raw data into clear decisions.</p>
+
+        <div class="grid grid-cols-2 gap-4 pt-4">
+          <div class="rounded-xl border border-ink-900/10 dark:border-paper-100/10 p-4">
+            <p class="font-display text-2xl font-bold grad-text">3+</p>
+            <p class="text-xs text-ink-700/60 dark:text-paper-200/50 mt-1">AI / Data Projects Built</p>
+          </div>
+          <div class="rounded-xl border border-ink-900/10 dark:border-paper-100/10 p-4">
+            <p class="font-display text-2xl font-bold grad-text">60</p>
+            <p class="text-xs text-ink-700/60 dark:text-paper-200/50 mt-1">Days AI Challenge</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SKILLS ===================== -->
+<section id="skills" class="py-28 bg-ink-900/[0.025] dark:bg-paper-100/[0.02] border-y border-ink-900/5 dark:border-paper-100/5">
+  <div class="max-w-6xl mx-auto px-6 lg:px-10">
+    <div class="reveal flex items-center gap-3 mb-3">
+      <span class="font-mono text-xs text-violet-500 dark:text-violet-400">02</span>
+      <span class="h-px flex-1 max-w-[40px] bg-ink-900/15 dark:bg-paper-100/15"></span>
+      <span class="font-mono text-xs uppercase tracking-widest text-ink-700/60 dark:text-paper-200/50">Skills</span>
+    </div>
+    <h2 class="reveal font-display text-3xl sm:text-4xl font-bold mb-14">What I work with</h2>
+
+    <div class="grid lg:grid-cols-2 gap-16">
+      <!-- Technical skill bars -->
+      <div class="space-y-7">
+        <p class="reveal font-mono text-xs uppercase tracking-widest text-teal-500 dark:text-teal-300 mb-1">Technical proficiency</p>
+        <div class="space-y-6" id="skill-bars">
+          <div class="reveal">
+            <div class="flex justify-between text-sm mb-2"><span class="font-medium">Python</span><span class="font-mono text-xs text-ink-700/50 dark:text-paper-200/40">90%</span></div>
+            <div class="h-1.5 rounded-full bg-ink-900/10 dark:bg-paper-100/10 overflow-hidden"><div class="skill-fill h-full rounded-full bg-gradient-to-r from-violet-500 to-teal-400" data-width="90"></div></div>
+          </div>
+          <div class="reveal">
+            <div class="flex justify-between text-sm mb-2"><span class="font-medium">Machine Learning</span><span class="font-mono text-xs text-ink-700/50 dark:text-paper-200/40">82%</span></div>
+            <div class="h-1.5 rounded-full bg-ink-900/10 dark:bg-paper-100/10 overflow-hidden"><div class="skill-fill h-full rounded-full bg-gradient-to-r from-violet-500 to-teal-400" data-width="82"></div></div>
+          </div>
+          <div class="reveal">
+            <div class="flex justify-between text-sm mb-2"><span class="font-medium">SQL</span><span class="font-mono text-xs text-ink-700/50 dark:text-paper-200/40">78%</span></div>
+            <div class="h-1.5 rounded-full bg-ink-900/10 dark:bg-paper-100/10 overflow-hidden"><div class="skill-fill h-full rounded-full bg-gradient-to-r from-violet-500 to-teal-400" data-width="78"></div></div>
+          </div>
+          <div class="reveal">
+            <div class="flex justify-between text-sm mb-2"><span class="font-medium">HTML / CSS / JavaScript</span><span class="font-mono text-xs text-ink-700/50 dark:text-paper-200/40">80%</span></div>
+            <div class="h-1.5 rounded-full bg-ink-900/10 dark:bg-paper-100/10 overflow-hidden"><div class="skill-fill h-full rounded-full bg-gradient-to-r from-violet-500 to-teal-400" data-width="80"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tools + Soft skills -->
+      <div class="space-y-10">
+        <div>
+          <p class="reveal font-mono text-xs uppercase tracking-widest text-teal-500 dark:text-teal-300 mb-4">Tools</p>
+          <div class="reveal flex flex-wrap gap-2.5">
+            <span class="tag px-3 py-1.5 rounded-md border border-ink-900/10 dark:border-paper-100/15 bg-white/60 dark:bg-ink-800/60">VS Code</span>
+            <span class="tag px-3 py-1.5 rounded-md border border-ink-900/10 dark:border-paper-100/15 bg-white/60 dark:bg-ink-800/60">Jupyter Notebook</span>
+            <span class="tag px-3 py-1.5 rounded-md border border-ink-900/10 dark:border-paper-100/15 bg-white/60 dark:bg-ink-800/60">Power BI</span>
+            <span class="tag px-3 py-1.5 rounded-md border border-ink-900/10 dark:border-paper-100/15 bg-white/60 dark:bg-ink-800/60">GitHub</span>
+            <span class="tag px-3 py-1.5 rounded-md border border-ink-900/10 dark:border-paper-100/15 bg-white/60 dark:bg-ink-800/60">Google Colab</span>
+          </div>
+        </div>
+
+        <div>
+          <p class="reveal font-mono text-xs uppercase tracking-widest text-teal-500 dark:text-teal-300 mb-4">Soft skills</p>
+          <div class="reveal flex flex-wrap gap-2.5">
+            <span class="tag px-3 py-1.5 rounded-md bg-violet-500/10 text-violet-600 dark:text-violet-300 border border-violet-500/20">Leadership</span>
+            <span class="tag px-3 py-1.5 rounded-md bg-violet-500/10 text-violet-600 dark:text-violet-300 border border-violet-500/20">Teamwork</span>
+            <span class="tag px-3 py-1.5 rounded-md bg-violet-500/10 text-violet-600 dark:text-violet-300 border border-violet-500/20">Communication</span>
+            <span class="tag px-3 py-1.5 rounded-md bg-violet-500/10 text-violet-600 dark:text-violet-300 border border-violet-500/20">Problem Solving</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROJECTS ===================== -->
+<section id="projects" class="py-28">
+  <div class="max-w-6xl mx-auto px-6 lg:px-10">
+    <div class="reveal flex items-center gap-3 mb-3">
+      <span class="font-mono text-xs text-violet-500 dark:text-violet-400">03</span>
+      <span class="h-px flex-1 max-w-[40px] bg-ink-900/15 dark:bg-paper-100/15"></span>
+      <span class="font-mono text-xs uppercase tracking-widest text-ink-700/60 dark:text-paper-200/50">Projects</span>
+    </div>
+    <h2 class="reveal font-display text-3xl sm:text-4xl font-bold mb-14">Things I've built</h2>
+
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <div class="reveal card-hover rounded-2xl border border-ink-900/10 dark:border-paper-100/10 bg-white/60 dark:bg-ink-800/50 p-6 flex flex-col">
+        <div class="w-11 h-11 rounded-lg bg-gradient-to-br from-violet-500/20 to-teal-400/20 flex items-center justify-center mb-5">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="text-violet-500 dark:text-violet-300"><path d="M12 2a7 7 0 0 0-7 7c0 3 2 5 2 7h10c0-2 2-4 2-7a7 7 0 0 0-7-7Z"/><path d="M9 21h6M10 18h4"/></svg>
+        </div>
+        <h3 class="font-display text-lg font-semibold mb-2">NutriScope</h3>
+        <p class="text-sm text-ink-700/75 dark:text-paper-200/65 leading-relaxed flex-1">AI-powered nutrition recommendation application that suggests personalized dietary choices based on user input.</p>
+        <div class="flex flex-wrap gap-2 mt-5">
+          <span class="tag px-2.5 py-1 rounded-md bg-ink-900/5 dark:bg-paper-100/10 text-ink-700/70 dark:text-paper-200/60">HTML</span>
+          <span class="tag px-2.5 py-1 rounded-md bg-ink-900/5 dark:bg-paper-100/10 text-ink-700/70 dark:text-paper-200/60">CSS</span>
+          <span class="tag px-2.5 py-1 rounded-md bg-ink-900/5 dark:bg-paper-100/10 text-ink-700/70 dark:text-paper-200/60">JavaScript</span>
+        </div>
+        <a href="https://github.com/drishti2205-cpu" target="_blank" rel="noopener" class="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-teal-600 dark:text-teal-300 hover:gap-2.5 transition-all">
+          View on GitHub
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+
+      <div class="reveal reveal-delay-1 card-hover rounded-2xl border border-ink-900/10 dark:border-paper-100/10 bg-white/60 dark:bg-ink-800/50 p-6 flex flex-col">
+        <div class="w-11 h-11 rounded-lg bg-gradient-to-br from-violet-500/20 to-teal-400/20 flex items-center justify-center mb-5">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="text-teal-500 dark:text-teal-300"><path d="M3 3v18h18"/><path d="M7 14l3-4 3 3 5-7"/></svg>
+        </div>
+        <h3 class="font-display text-lg font-semibold mb-2">Personal Environmental Health Analyzer</h3>
+        <p class="text-sm text-ink-700/75 dark:text-paper-200/65 leading-relaxed flex-1">Interactive dashboard for analyzing AQI and water quality trends to support healthier everyday decisions.</p>
+        <div class="flex flex-wrap gap-2 mt-5">
+          <span class="tag px-2.5 py-1 rounded-md bg-ink-900/5 dark:bg-paper-100/10 text-ink-700/70 dark:text-paper-200/60">Python</span>
+          <span class="tag px-2.5 py-1 rounded-md bg-ink-900/5 dark:bg-paper-100/10 text-ink-700/70 dark:text-paper-200/60">Plotly</span>
+          <span class="tag px-2.5 py-1 rounded-md bg-ink-900/5 dark:bg-paper-100/10 text-ink-700/70 dark:text-paper-200/60">Pandas</span>
+        </div>
+        <a href="https://github.com/drishti2205-cpu" target="_blank" rel="noopener" class="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-teal-600 dark:text-teal-300 hover:gap-2.5 transition-all">
+          View on GitHub
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+
+      <div class="reveal reveal-delay-2 card-hover rounded-2xl border border-ink-900/10 dark:border-paper-100/10 bg-white/60 dark:bg-ink-800/50 p-6 flex flex-col">
+        <div class="w-11 h-11 rounded-lg bg-gradient-to-br from-violet-500/20 to-teal-400/20 flex items-center justify-center mb-5">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="text-violet-500 dark:text-violet-300"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        </div>
+        <h3 class="font-display text-lg font-semibold mb-2">AQI Prediction System</h3>
+        <p class="text-sm text-ink-700/75 dark:text-paper-200/65 leading-relaxed flex-1">Machine learning model trained to forecast air quality index using historical environmental data.</p>
+        <div class="flex flex-wrap gap-2 mt-5">
+          <span class="tag px-2.5 py-1 rounded-md bg-ink-900/5 dark:bg-paper-100/10 text-ink-700/70 dark:text-paper-200/60">Python</span>
+          <span class="tag px-2.5 py-1 rounded-md bg-ink-900/5 dark:bg-paper-100/10 text-ink-700/70 dark:text-paper-200/60">Scikit-Learn</span>
+          <span class="tag px-2.5 py-1 rounded-md bg-ink-900/5 dark:bg-paper-100/10 text-ink-700/70 dark:text-paper-200/60">Pandas</span>
+        </div>
+        <a href="https://github.com/drishti2205-cpu" target="_blank" rel="noopener" class="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-teal-600 dark:text-teal-300 hover:gap-2.5 transition-all">
+          View on GitHub
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ACHIEVEMENTS ===================== -->
+<section id="achievements" class="py-28 bg-ink-900/[0.025] dark:bg-paper-100/[0.02] border-y border-ink-900/5 dark:border-paper-100/5">
+  <div class="max-w-6xl mx-auto px-6 lg:px-10">
+    <div class="reveal flex items-center gap-3 mb-3">
+      <span class="font-mono text-xs text-violet-500 dark:text-violet-400">04</span>
+      <span class="h-px flex-1 max-w-[40px] bg-ink-900/15 dark:bg-paper-100/15"></span>
+      <span class="font-mono text-xs uppercase tracking-widest text-ink-700/60 dark:text-paper-200/50">Achievements</span>
+    </div>
+    <h2 class="reveal font-display text-3xl sm:text-4xl font-bold mb-14">Milestones along the way</h2>
+
+    <div class="grid sm:grid-cols-2 gap-5">
+      <div class="reveal flex gap-4 rounded-xl border border-ink-900/10 dark:border-paper-100/10 p-5 bg-white/50 dark:bg-ink-800/40">
+        <div class="w-10 h-10 shrink-0 rounded-lg bg-violet-500/15 flex items-center justify-center text-violet-500 dark:text-violet-300">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <div>
+          <h3 class="font-semibold text-sm mb-1">Smart India Hackathon 2025</h3>
+          <p class="text-sm text-ink-700/70 dark:text-paper-200/55">Participant — collaborated on solving a real-world problem statement under time pressure.</p>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-1 flex gap-4 rounded-xl border border-ink-900/10 dark:border-paper-100/10 p-5 bg-white/50 dark:bg-ink-800/40">
+        <div class="w-10 h-10 shrink-0 rounded-lg bg-teal-400/15 flex items-center justify-center text-teal-500 dark:text-teal-300">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="5"/><path d="M8 13 6 21l6-3 6 3-2-8"/></svg>
+        </div>
+        <div>
+          <h3 class="font-semibold text-sm mb-1">60 Days AI Challenge</h3>
+          <p class="text-sm text-ink-700/70 dark:text-paper-200/55">Completed a sustained, structured challenge to deepen hands-on AI and ML skills.</p>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-2 flex gap-4 rounded-xl border border-ink-900/10 dark:border-paper-100/10 p-5 bg-white/50 dark:bg-ink-800/40">
+        <div class="w-10 h-10 shrink-0 rounded-lg bg-violet-500/15 flex items-center justify-center text-violet-500 dark:text-violet-300">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 3v4M15 3v4M4 9h16M5 7h14a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1Z"/></svg>
+        </div>
+        <div>
+          <h3 class="font-semibold text-sm mb-1">Multiple AI & Data Science Projects</h3>
+          <p class="text-sm text-ink-700/70 dark:text-paper-200/55">Built and shipped several applied projects spanning ML, dashboards, and predictive analytics.</p>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-3 flex gap-4 rounded-xl border border-ink-900/10 dark:border-paper-100/10 p-5 bg-white/50 dark:bg-ink-800/40">
+        <div class="w-10 h-10 shrink-0 rounded-lg bg-teal-400/15 flex items-center justify-center text-teal-500 dark:text-teal-300">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+        </div>
+        <div>
+          <h3 class="font-semibold text-sm mb-1">B.Tech, Generative AI Focus</h3>
+          <p class="text-sm text-ink-700/70 dark:text-paper-200/55">Actively studying and experimenting with modern Generative AI tools and workflows.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section id="contact" class="py-28">
+  <div class="max-w-6xl mx-auto px-6 lg:px-10">
+    <div class="reveal flex items-center gap-3 mb-3">
+      <span class="font-mono text-xs text-violet-500 dark:text-violet-400">05</span>
+      <span class="h-px flex-1 max-w-[40px] bg-ink-900/15 dark:bg-paper-100/15"></span>
+      <span class="font-mono text-xs uppercase tracking-widest text-ink-700/60 dark:text-paper-200/50">Contact</span>
+    </div>
+
+    <div class="grid lg:grid-cols-[0.85fr_1.15fr] gap-12">
+      <div class="reveal">
+        <h2 class="font-display text-3xl sm:text-4xl font-bold leading-tight mb-5">Let's build something <span class="grad-text">intelligent</span> together.</h2>
+        <p class="text-ink-700/75 dark:text-paper-200/65 leading-relaxed mb-8">Open to internships, collaborations, and conversations about AI, data, and GenAI projects. Reach out — I usually reply within a day or two.</p>
+
+        <div class="space-y-4">
+          <a href="mailto:your-drishtidrishti2205@gmail.com" class="flex items-center gap-3 text-sm group">
+            <span class="w-9 h-9 rounded-full border border-ink-900/15 dark:border-paper-100/15 flex items-center justify-center group-hover:border-violet-500 group-hover:text-violet-500 dark:group-hover:text-violet-400 transition-colors">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18v12H3z"/><path d="m3 7 9 6 9-6"/></svg>
+            </span>
+            <span class="text-ink-700/80 dark:text-paper-200/70 group-hover:text-violet-600 dark:group-hover:text-violet-300 transition-colors break-all">your-drishtidrishti2205@gmail.com</span>
+          </a>
+          <a href="https://www.linkedin.com/in/drishti-906275404" target="_blank" rel="noopener" class="flex items-center gap-3 text-sm group">
+            <span class="w-9 h-9 rounded-full border border-ink-900/15 dark:border-paper-100/15 flex items-center justify-center group-hover:border-violet-500 group-hover:text-violet-500 dark:group-hover:text-violet-400 transition-colors">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+            </span>
+            <span class="text-ink-700/80 dark:text-paper-200/70 group-hover:text-violet-600 dark:group-hover:text-violet-300 transition-colors">linkedin.com/in/drishti-906275404</span>
+          </a>
+          <a href="https://github.com/drishti2205-cpu" target="_blank" rel="noopener" class="flex items-center gap-3 text-sm group">
+            <span class="w-9 h-9 rounded-full border border-ink-900/15 dark:border-paper-100/15 flex items-center justify-center group-hover:border-teal-400 group-hover:text-teal-500 dark:group-hover:text-teal-300 transition-colors">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.74.5 12.03c0 5.05 3.29 9.33 7.85 10.84.57.1.78-.25.78-.55v-2.16c-3.2.7-3.87-1.36-3.87-1.36-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.03 1.78 2.71 1.26 3.37.97.1-.75.4-1.27.73-1.56-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.58.24 2.75.12 3.04.74.81 1.19 1.83 1.19 3.09 0 4.41-2.7 5.39-5.27 5.67.42.36.78 1.08.78 2.17v3.22c0 .31.21.66.79.55A10.53 10.53 0 0 0 23.5 12.03C23.5 5.74 18.27.5 12 .5z"/></svg>
+            </span>
+            <span class="text-ink-700/80 dark:text-paper-200/70 group-hover:text-teal-600 dark:group-hover:text-teal-300 transition-colors">github.com/drishti2205-cpu</span>
+          </a>
+          <div class="flex items-center gap-3 text-sm">
+            <span class="w-9 h-9 rounded-full border border-ink-900/15 dark:border-paper-100/15 flex items-center justify-center">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.5-7-11.5A7 7 0 0 1 19 9.5C19 14.5 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+            </span>
+            <span class="text-ink-700/80 dark:text-paper-200/70">India</span>
+          </div>
+        </div>
+      </div>
+
+      <form id="contact-form" class="reveal reveal-delay-1 rounded-2xl border border-ink-900/10 dark:border-paper-100/10 bg-white/60 dark:bg-ink-800/50 p-6 sm:p-8">
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div>
+            <label class="block text-xs font-mono uppercase tracking-wider text-ink-700/60 dark:text-paper-200/50 mb-2" for="name">Name</label>
+            <input id="name" name="name" type="text" required placeholder="Your name" class="field w-full px-4 py-3 rounded-lg bg-paper-50 dark:bg-ink-900 border border-ink-900/10 dark:border-paper-100/10 text-sm transition-all">
+          </div>
+          <div>
+            <label class="block text-xs font-mono uppercase tracking-wider text-ink-700/60 dark:text-paper-200/50 mb-2" for="email">Email</label>
+            <input id="email" name="email" type="email" required placeholder="you@example.com" class="field w-full px-4 py-3 rounded-lg bg-paper-50 dark:bg-ink-900 border border-ink-900/10 dark:border-paper-100/10 text-sm transition-all">
+          </div>
+        </div>
+        <div class="mt-5">
+          <label class="block text-xs font-mono uppercase tracking-wider text-ink-700/60 dark:text-paper-200/50 mb-2" for="message">Message</label>
+          <textarea id="message" name="message" rows="4" required placeholder="Tell me about your project or opportunity..." class="field w-full px-4 py-3 rounded-lg bg-paper-50 dark:bg-ink-900 border border-ink-900/10 dark:border-paper-100/10 text-sm transition-all resize-none"></textarea>
+        </div>
+        <button type="submit" class="mt-6 w-full sm:w-auto px-7 py-3 rounded-lg bg-gradient-to-r from-violet-500 to-teal-400 text-ink-950 font-semibold text-sm hover:opacity-90 transition-opacity">
+          Send Message
+        </button>
+        <p id="form-status" class="mt-4 text-sm font-mono text-teal-500 dark:text-teal-300 hidden">Message ready — opening your email client...</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="border-t border-ink-900/10 dark:border-paper-100/10 py-8">
+  <div class="max-w-6xl mx-auto px-6 lg:px-10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-ink-700/50 dark:text-paper-200/40">
+    <p>© <span id="year"></span> Drishti. Built with HTML, Tailwind & curiosity.</p>
+    <p class="font-mono">Designed &amp; coded with <span class="text-violet-500 dark:text-violet-400">♦</span></p>
+  </div>
+</footer>
+
+<script>
+  // ---------- Theme toggle ----------
+  const root = document.documentElement;
+  const themeToggle = document.getElementById('theme-toggle');
+  const setTheme = (mode) => {
+    if (mode === 'dark') { root.classList.add('dark'); } else { root.classList.remove('dark'); }
+    try { localStorage.setItem('drishti-theme', mode); } catch(e) {}
+  };
+  let saved = null;
+  try { saved = localStorage.getItem('drishti-theme'); } catch(e) {}
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  setTheme(saved || (prefersDark ? 'dark' : 'dark')); // default dark for premium feel
+  themeToggle.addEventListener('click', () => {
+    setTheme(root.classList.contains('dark') ? 'light' : 'dark');
+  });
+
+  // ---------- Mobile menu ----------
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  let menuOpen = false;
+  menuBtn.addEventListener('click', () => {
+    menuOpen = !menuOpen;
+    if (menuOpen) {
+      mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
+      mobileMenu.style.opacity = '1';
+    } else {
+      mobileMenu.style.maxHeight = '0px';
+      mobileMenu.style.opacity = '0';
+    }
+  });
+  document.querySelectorAll('#mobile-menu a').forEach(a => a.addEventListener('click', () => {
+    menuOpen = false;
+    mobileMenu.style.maxHeight = '0px';
+    mobileMenu.style.opacity = '0';
+  }));
+
+  // ---------- Typing animation ----------
+  const phrases = [
+    'AI & Data Science Enthusiast',
+    'GenAI Builder',
+    'B.Tech Student',
+    'Machine Learning Explorer'
+  ];
+  const typedEl = document.getElementById('typed-text');
+  let pIndex = 0, cIndex = 0, deleting = false;
+
+  function typeLoop() {
+    const current = phrases[pIndex];
+    if (!deleting) {
+      cIndex++;
+      typedEl.textContent = current.slice(0, cIndex);
+      if (cIndex === current.length) {
+        deleting = true;
+        setTimeout(typeLoop, 1600);
+        return;
+      }
+    } else {
+      cIndex--;
+      typedEl.textContent = current.slice(0, cIndex);
+      if (cIndex === 0) {
+        deleting = false;
+        pIndex = (pIndex + 1) % phrases.length;
+      }
+    }
+    setTimeout(typeLoop, deleting ? 35 : 65);
+  }
+  typeLoop();
+
+  // ---------- Scroll reveal ----------
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+
+  // ---------- Skill bars fill on view ----------
+  const skillBars = document.querySelectorAll('.skill-fill');
+  const skillIo = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.width = entry.target.dataset.width + '%';
+        skillIo.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
+  skillBars.forEach(el => skillIo.observe(el));
+
+  // ---------- Active nav highlighting ----------
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('[data-nav]');
+  const navIo = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const id = entry.target.getAttribute('id');
+      const link = document.querySelector(`[data-nav][href="#${id}"]`);
+      if (entry.isIntersecting) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        document.querySelectorAll(`[data-nav][href="#${id}"]`).forEach(l => l.classList.add('active'));
+      }
+    });
+  }, { rootMargin: '-45% 0px -45% 0px' });
+  sections.forEach(s => navIo.observe(s));
+
+  // ---------- Footer year ----------
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // ---------- Contact form (mailto fallback) ----------
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+    const subject = encodeURIComponent(`Portfolio inquiry from ${name}`);
+    const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
+    status.classList.remove('hidden');
+    window.location.href = `mailto:your-drishtidrishti2205@gmail.com?subject=${subject}&body=${body}`;
+  });
+
+  // ---------- Neural network canvas ----------
+  const canvas = document.getElementById('network-canvas');
+  const ctx = canvas.getContext('2d');
+  let w, h, nodes;
+  const NODE_COUNT = 46;
+  const MAX_DIST = 140;
+
+  function resize() {
+    const rect = canvas.parentElement.getBoundingClientRect();
+    w = canvas.width = rect.width;
+    h = canvas.height = rect.height;
+  }
+
+  function initNodes() {
+    nodes = Array.from({ length: NODE_COUNT }, () => ({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      vx: (Math.random() - 0.5) * 0.35,
+      vy: (Math.random() - 0.5) * 0.35,
+    }));
+  }
+
+  let isDark = () => root.classList.contains('dark');
+
+  function draw() {
+    ctx.clearRect(0, 0, w, h);
+    const lineColor = isDark() ? 'rgba(124,92,252,' : 'rgba(20,184,166,';
+    const dotColor = isDark() ? 'rgba(155,134,255,0.8)' : 'rgba(124,92,252,0.55)';
+
+    for (let i = 0; i < nodes.length; i++) {
+      const n = nodes[i];
+      n.x += n.vx; n.y += n.vy;
+      if (n.x < 0 || n.x > w) n.vx *= -1;
+      if (n.y < 0 || n.y > h) n.vy *= -1;
+
+      for (let j = i + 1; j < nodes.length; j++) {
+        const m = nodes[j];
+        const dx = n.x - m.x, dy = n.y - m.y;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+        if (dist < MAX_DIST) {
+          ctx.strokeStyle = lineColor + (1 - dist / MAX_DIST) * 0.35 + ')';
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(n.x, n.y);
+          ctx.lineTo(m.x, m.y);
+          ctx.stroke();
+        }
+      }
+    }
+    for (const n of nodes) {
+      ctx.fillStyle = dotColor;
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, 1.8, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+
+  function setupCanvas() {
+    resize();
+    initNodes();
+  }
+  window.addEventListener('resize', resize);
+  setupCanvas();
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    requestAnimationFrame(draw);
+  }
+</script>
+
+</body>
+</html>
