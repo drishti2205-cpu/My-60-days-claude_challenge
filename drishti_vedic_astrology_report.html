@@ -1,0 +1,534 @@
+
+<style>
+  :root { --gold: #BA7517; --deep: #633806; --light-gold: #FAEEDA; --teal: #0F6E56; --light-teal: #E1F5EE; --coral: #993C1D; --light-coral: #FAECE7; --purple: #534AB7; --light-purple: #EEEDFE; --blue: #185FA5; --light-blue: #E6F1FB; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font-sans, sans-serif); color: var(--color-text-primary); }
+  .report { padding: 1.5rem 0; }
+  .hero { background: linear-gradient(135deg, #FAEEDA 0%, #E1F5EE 100%); border-radius: var(--border-radius-lg); padding: 1.5rem; margin-bottom: 1.5rem; border: 0.5px solid var(--color-border-tertiary); }
+  .hero-name { font-size: 22px; font-weight: 500; color: #412402; margin-bottom: 4px; }
+  .hero-sub { font-size: 13px; color: #633806; }
+  .hero-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .pill { font-size: 12px; padding: 4px 10px; border-radius: 20px; font-weight: 500; }
+  .pill-gold { background: #FAC775; color: #412402; }
+  .pill-teal { background: #9FE1CB; color: #04342C; }
+  .pill-purple { background: #CECBF6; color: #26215C; }
+  .pill-coral { background: #F5C4B3; color: #4A1B0C; }
+  .section { margin-bottom: 1.5rem; }
+  .section-title { font-size: 16px; font-weight: 500; color: var(--color-text-primary); padding: 8px 12px; background: var(--color-background-secondary); border-left: 3px solid #BA7517; border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0; margin-bottom: 12px; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+  .card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 12px; }
+  .card-label { font-size: 11px; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+  .card-value { font-size: 15px; font-weight: 500; color: var(--color-text-primary); }
+  .card-sub { font-size: 12px; color: var(--color-text-secondary); margin-top: 2px; }
+  .planet-row { display: flex; justify-content: space-between; align-items: center; padding: 7px 10px; border-bottom: 0.5px solid var(--color-border-tertiary); font-size: 13px; }
+  .planet-row:last-child { border-bottom: none; }
+  .planet-name { font-weight: 500; color: var(--color-text-primary); min-width: 80px; }
+  .planet-sign { color: var(--color-text-secondary); min-width: 90px; }
+  .planet-house { color: var(--color-text-secondary); min-width: 60px; }
+  .planet-badge { font-size: 11px; padding: 2px 8px; border-radius: 10px; }
+  .badge-fb { background: #C0DD97; color: #173404; }
+  .badge-fm { background: #F7C1C1; color: #501313; }
+  .badge-neutral { background: #D3D1C7; color: #2C2C2A; }
+  .badge-yoga { background: #CECBF6; color: #26215C; }
+  .yoga-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 10px 12px; margin-bottom: 8px; }
+  .yoga-title { font-size: 13px; font-weight: 500; color: #412402; }
+  .yoga-desc { font-size: 12px; color: var(--color-text-secondary); margin-top: 3px; line-height: 1.5; }
+  .timeline-item { display: flex; gap: 12px; padding: 10px 0; border-bottom: 0.5px solid var(--color-border-tertiary); }
+  .timeline-item:last-child { border-bottom: none; }
+  .timeline-age { font-size: 12px; font-weight: 500; color: #0F6E56; min-width: 80px; }
+  .timeline-text { font-size: 13px; color: var(--color-text-secondary); line-height: 1.5; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { background: var(--color-background-secondary); padding: 8px 10px; text-align: left; font-weight: 500; font-size: 12px; color: var(--color-text-secondary); border-bottom: 0.5px solid var(--color-border-tertiary); }
+  td { padding: 8px 10px; border-bottom: 0.5px solid var(--color-border-tertiary); color: var(--color-text-primary); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  .best-year td { background: #EAF3DE; }
+  .tough-year td { background: #FCEBEB; }
+  .remedy-block { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 12px; margin-bottom: 8px; }
+  .remedy-title { font-size: 13px; font-weight: 500; color: #26215C; margin-bottom: 6px; }
+  .remedy-text { font-size: 12px; color: var(--color-text-secondary); line-height: 1.6; }
+  .dasha-bar { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 14px; margin-bottom: 8px; border-left: 3px solid #BA7517; }
+  .dasha-title { font-size: 14px; font-weight: 500; color: var(--color-text-primary); }
+  .dasha-sub { font-size: 12px; color: var(--color-text-secondary); margin-top: 3px; }
+  .highlight-box { background: #FAEEDA; border: 0.5px solid #FAC775; border-radius: var(--border-radius-md); padding: 10px 12px; margin-top: 10px; }
+  .highlight-text { font-size: 12px; color: #412402; line-height: 1.6; }
+  .nav { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+  .nav-btn { font-size: 12px; padding: 5px 12px; border-radius: 20px; border: 0.5px solid var(--color-border-secondary); background: var(--color-background-primary); color: var(--color-text-secondary); cursor: pointer; }
+  .nav-btn:hover { background: var(--color-background-secondary); }
+  .section-anchor { scroll-margin-top: 8px; }
+  .star { color: #BA7517; }
+  .risk { color: #993C1D; }
+  .chakra-chart { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr); gap: 3px; width: 100%; aspect-ratio: 1; border: 1.5px solid var(--color-border-secondary); border-radius: 4px; overflow: hidden; font-size: 11px; }
+  .house-cell { border: 0.5px solid var(--color-border-tertiary); padding: 5px; display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--color-background-primary); min-height: 70px; }
+  .house-num { font-size: 10px; color: var(--color-text-secondary); }
+  .house-sign { font-size: 11px; font-weight: 500; color: var(--color-text-primary); }
+  .house-planets { font-size: 10px; color: #185FA5; margin-top: 2px; text-align: center; }
+  .house-lagna { border: 2px solid #BA7517 !important; background: #FAEEDA !important; }
+</style>
+
+<div class="report">
+  <div class="hero">
+    <div class="hero-name">Drishti — Vedic Astrology Reading</div>
+    <div class="hero-sub">DOB: 22 May 2009 · 4:50 PM (Approx) · Patna, Bihar · Age: 17</div>
+    <div class="hero-pills">
+      <span class="pill pill-gold">Lagna: Virgo (Kanya)</span>
+      <span class="pill pill-teal">Moon: Scorpio (Vrishchika)</span>
+      <span class="pill pill-purple">Nakshatra: Jyeshtha Pada 2</span>
+      <span class="pill pill-coral">Sun: Taurus (Vrishabha)</span>
+    </div>
+  </div>
+
+  <div class="nav">
+    <a href="#chart-summary" class="nav-btn">Birth Chart</a>
+    <a href="#life-pattern" class="nav-btn">Life Pattern</a>
+    <a href="#career" class="nav-btn">Career & Wealth</a>
+    <a href="#relationships" class="nav-btn">Relationships</a>
+    <a href="#dasha" class="nav-btn">Dasha</a>
+    <a href="#forecast" class="nav-btn">5-Year Forecast</a>
+    <a href="#remedies" class="nav-btn">Remedies</a>
+  </div>
+
+  <!-- SECTION 1: BIRTH CHART SUMMARY -->
+  <div id="chart-summary" class="section section-anchor">
+    <div class="section-title">1 · Birth Chart Summary</div>
+
+    <div class="grid-3" style="margin-bottom:12px">
+      <div class="card">
+        <div class="card-label">Ascendant (Lagna)</div>
+        <div class="card-value">Virgo (Kanya)</div>
+        <div class="card-sub">Mercury-ruled</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Moon Sign (Rashi)</div>
+        <div class="card-value">Scorpio</div>
+        <div class="card-sub">Mars-ruled</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Sun Sign</div>
+        <div class="card-value">Taurus</div>
+        <div class="card-sub">Venus-ruled</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Nakshatra</div>
+        <div class="card-value">Jyeshtha</div>
+        <div class="card-sub">Pada 2 · Mercury sub-lord</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Nakshatra Lord</div>
+        <div class="card-value">Mercury</div>
+        <div class="card-sub">Intelligence, analysis</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Vimshottari Start</div>
+        <div class="card-value">Mercury MD</div>
+        <div class="card-sub">Currently active</div>
+      </div>
+    </div>
+
+    <!-- Planetary Placements Table -->
+    <div class="card" style="margin-bottom:12px; padding:0; overflow:hidden;">
+      <div style="padding:10px 12px; font-size:13px; font-weight:500; border-bottom:0.5px solid var(--color-border-tertiary)">Planetary Placements</div>
+      <div class="planet-row">
+        <span class="planet-name">☉ Sun</span>
+        <span class="planet-sign">Taurus — H9</span>
+        <span class="planet-house">Exalted zone</span>
+        <span class="planet-badge badge-fb">Benefic</span>
+      </div>
+      <div class="planet-row">
+        <span class="planet-name">☾ Moon</span>
+        <span class="planet-sign">Scorpio — H3</span>
+        <span class="planet-house">Debilitated</span>
+        <span class="planet-badge badge-fm">Malefic</span>
+      </div>
+      <div class="planet-row">
+        <span class="planet-name">♂ Mars</span>
+        <span class="planet-sign">Pisces — H7</span>
+        <span class="planet-house">Own sign (co-lord)</span>
+        <span class="planet-badge badge-neutral">Neutral</span>
+      </div>
+      <div class="planet-row">
+        <span class="planet-name">☿ Mercury</span>
+        <span class="planet-sign">Gemini — H10</span>
+        <span class="planet-house">Own sign · Strong</span>
+        <span class="planet-badge badge-fb">Yoga Karaka</span>
+      </div>
+      <div class="planet-row">
+        <span class="planet-name">♃ Jupiter</span>
+        <span class="planet-sign">Capricorn — H5</span>
+        <span class="planet-house">Debilitated</span>
+        <span class="planet-badge badge-fm">Weakened</span>
+      </div>
+      <div class="planet-row">
+        <span class="planet-name">♀ Venus</span>
+        <span class="planet-sign">Aries — H8</span>
+        <span class="planet-house">Debilitated sign</span>
+        <span class="planet-badge badge-fm">Malefic</span>
+      </div>
+      <div class="planet-row">
+        <span class="planet-name">♄ Saturn</span>
+        <span class="planet-sign">Virgo — H1</span>
+        <span class="planet-house">Lagna placement</span>
+        <span class="planet-badge badge-fm">Malefic (delay)</span>
+      </div>
+      <div class="planet-row">
+        <span class="planet-name">☊ Rahu</span>
+        <span class="planet-sign">Capricorn — H5</span>
+        <span class="planet-house">With Jupiter</span>
+        <span class="planet-badge badge-fm">Amplifies</span>
+      </div>
+      <div class="planet-row">
+        <span class="planet-name">☋ Ketu</span>
+        <span class="planet-sign">Cancer — H11</span>
+        <span class="planet-house">Gains sector</span>
+        <span class="planet-badge badge-neutral">Mixed</span>
+      </div>
+    </div>
+
+    <!-- Strengths & Weaknesses -->
+    <div class="grid-2" style="margin-bottom:12px">
+      <div class="card">
+        <div class="card-label" style="color:#3B6D11">Key Strengths</div>
+        <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.8; margin-top:6px">
+          ✦ Mercury in own sign (H10) — exceptional intellect, analytical mind<br>
+          ✦ Sun in H9 — philosophical depth, dharmic nature<br>
+          ✦ Virgo Lagna — meticulous, service-oriented<br>
+          ✦ Jyeshtha Nakshatra — leadership qualities, protective instincts<br>
+          ✦ Strong 10th house — career is naturally highlighted
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-label" style="color:#993C1D">Key Weaknesses</div>
+        <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.8; margin-top:6px">
+          ✦ Moon debilitated in Scorpio (H3) — emotional turbulence<br>
+          ✦ Jupiter debilitated in Capricorn — wisdom comes late<br>
+          ✦ Saturn in Lagna — health concerns, delays in early life<br>
+          ✦ Venus in H8 — relationship and financial disruptions<br>
+          ✦ Rahu-Jupiter conjunction — obsessive tendencies, confusion
+        </div>
+      </div>
+    </div>
+
+    <!-- Yogas -->
+    <div style="margin-bottom:12px">
+      <div style="font-size:13px; font-weight:500; margin-bottom:8px; color:var(--color-text-secondary)">Major Yogas & Doshas</div>
+      <div class="yoga-card">
+        <div class="yoga-title">🔆 Budhaditya Yoga (partial) — Intelligence & Recognition</div>
+        <div class="yoga-desc">Mercury in Gemini in H10 is in own sign while Sun in Taurus H9 creates a partial Budhaditya effect. Strong intellectual capacity, articulate expression, and career through communication, technology, or education. This yoga is activated during Mercury and Sun periods.</div>
+      </div>
+      <div class="yoga-card">
+        <div class="yoga-title">⚡ Jyeshtha Nakshatra Leadership Yoga</div>
+        <div class="yoga-desc">Born in Jyeshtha (the eldest), ruled by Indra — this nakshatra gives an innate drive to lead, protect, and excel. There is a tendency to take on too much responsibility. Strong sense of power and authority, but emotional isolation is a risk.</div>
+      </div>
+      <div class="yoga-card">
+        <div class="yoga-title">⚠ Neecha Bhanga (Cancellation of Debilitation) — Jupiter</div>
+        <div class="yoga-desc">Jupiter is debilitated in Capricorn, but Rahu's presence and the placement in H5 create partial Neecha Bhanga. The negative effect of Jupiter's debilitation is reduced but not eliminated. Wisdom and expansion come after age 22–24.</div>
+      </div>
+      <div class="yoga-card">
+        <div class="yoga-title">⚠ Shani in Lagna — Discipline & Delay</div>
+        <div class="yoga-desc">Saturn in Virgo Lagna brings discipline, hard work, and seriousness to the personality, but also delays, health concerns (digestion, skin), and introversion. This also creates a strong sense of justice and ethical conduct. Results improve significantly after age 30.</div>
+      </div>
+      <div class="yoga-card">
+        <div class="yoga-title">⚠ Kemadruma Yoga (partial) — Emotional Isolation</div>
+        <div class="yoga-desc">Moon in H3 with no planet in H2 or H4 creates partial Kemadruma yoga, leading to feelings of emotional isolation, difficulty expressing needs, and self-reliance. This person often feels misunderstood even in social settings.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: LIFE PATTERN ANALYSIS -->
+  <div id="life-pattern" class="section section-anchor">
+    <div class="section-title">2 · Life Pattern Analysis</div>
+    <div class="card" style="margin-bottom:10px">
+      <div class="card-label">Core Personality (Virgo Lagna + Jyeshtha Moon)</div>
+      <div style="font-size:13px; color:var(--color-text-secondary); line-height:1.7; margin-top:6px">
+        Drishti is likely highly analytical, detail-oriented, and driven by a need for perfection. The Virgo Lagna makes her a natural problem-solver who excels in structured environments. The Scorpio Moon adds depth, intensity, and emotional complexity — she feels things deeply but rarely shows it. Jyeshtha Nakshatra gives her a natural authority that others sense, even at a young age. She is likely to be the "elder soul" in friend groups and the go-to person for advice. There is a tendency toward over-thinking, self-criticism, and holding back authentic emotions.
+      </div>
+    </div>
+    <div class="card" style="margin-bottom:10px">
+      <div class="card-label">Childhood & Family Influences</div>
+      <div style="font-size:13px; color:var(--color-text-secondary); line-height:1.7; margin-top:6px">
+        Saturn in Lagna and Moon in H3 suggest an early childhood with some emotional distance or a strict environment. The father (Sun in H9) is a positive influence — likely educated, spiritual, or holds a respectable position. The mother-figure (Moon) relationship has some complexity — communication gaps, unexpressed feelings, or physical distance are possible. Ketu in H11 suggests that friendships and social gains come through unconventional paths or spiritual/creative connections.
+      </div>
+    </div>
+    <div class="card" style="margin-bottom:10px">
+      <div class="card-label">Repeating Karmic Patterns</div>
+      <div style="font-size:13px; color:var(--color-text-secondary); line-height:1.7; margin-top:6px">
+        <strong>Pattern 1:</strong> Taking on too much responsibility, then feeling drained and resentful (Jyeshtha + Saturn in Lagna). <strong>Pattern 2:</strong> Holding back emotions until they overflow (Scorpio Moon + H3). <strong>Pattern 3:</strong> Attracting partnerships where she gives more than she receives (Venus in H8). <strong>Pattern 4:</strong> Intellectual achievement followed by self-doubt (Jupiter debilitated in H5). Awareness of these patterns is the first step to breaking them.
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-label">Relationship Tendencies</div>
+        <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.7; margin-top:6px">
+          Intense, loyal, and somewhat possessive. Scorpio Moon makes her guard her emotions fiercely. Venus in H8 means transformation through relationships — early connections may be karmic and difficult. True emotional partnership comes after significant maturation.
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-label">Financial Habits</div>
+        <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.7; margin-top:6px">
+          Mercury in H10 supports financial intelligence but Venus in H8 causes unexpected disruptions. Naturally inclined toward saving, research-based investments. Caution with speculative investments (Rahu in H5 can create gambling impulses).
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: CAREER & WEALTH -->
+  <div id="career" class="section section-anchor">
+    <div class="section-title">3 · Career & Wealth (Highest Priority)</div>
+
+    <div class="grid-2" style="margin-bottom:12px">
+      <div class="card">
+        <div class="card-label">Career Suitability</div>
+        <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.7; margin-top:6px">
+          Mercury in own sign in H10 (career house) is an exceptional placement. Best suited for: <strong>Technology, Data Science, Research, Journalism, Law, Communication, Healthcare analytics, Education, Writing.</strong> Virgo Lagna + Scorpio Moon adds investigative, research, and detective-like qualities — forensics, psychology, deep research fields.
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-label">Job vs Business</div>
+        <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.7; margin-top:6px">
+          <span class="star">★ Job first (strongly recommended)</span> until age 28–30. Saturn in Lagna demands a structured path. Mercury rules the 10th — structured intellectual careers in organizations first. Business is possible after 30, especially in consulting, education, or tech-related ventures.
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-label">Leadership & Government</div>
+        <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.7; margin-top:6px">
+          <strong>Leadership potential: High.</strong> Jyeshtha Nakshatra, Mercury in H10, Sun in H9 — natural authority. <strong>Government job potential: Moderate.</strong> Sun in H9 supports government/administrative roles. UPSC or civil services are viable after sustained effort. Success possible in ages 24–28 window.
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-label">Foreign Opportunities</div>
+        <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.7; margin-top:6px">
+          <strong>Strong foreign potential.</strong> Rahu in H5 + Sun in H9 (9th = long journeys, higher learning abroad). Mercury in H10 supports international communication careers. Most likely window: <strong>age 22–27</strong> for foreign education or work.
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:12px; padding:0; overflow:hidden;">
+      <div style="padding:10px 12px; font-size:13px; font-weight:500; border-bottom:0.5px solid var(--color-border-tertiary)">Career & Wealth Timeline</div>
+      <div class="timeline-item" style="padding:10px 12px">
+        <div class="timeline-age">Age 17–19</div>
+        <div class="timeline-text">Academic foundation phase. Mercury MD supports strong academic performance. Focus on board exams, entrance tests. This period defines the career path — study hard in this window.</div>
+      </div>
+      <div class="timeline-item" style="padding:10px 12px">
+        <div class="timeline-age">Age 20–23</div>
+        <div class="timeline-text">Higher education and initial career formation. Mercury-Jupiter sub-period likely brings a scholarship or quality college. First professional exposure. Possible foreign education connection.</div>
+      </div>
+      <div class="timeline-item" style="padding:10px 12px; background:#EAF3DE">
+        <div class="timeline-age" style="color:#3B6D11">Age 24–28 ⭐</div>
+        <div class="timeline-text"><strong>First major career breakthrough.</strong> Ketu MD begins (~age 24). Ketu in H11 activates gains, professional networks. This is the first serious wealth-building window.</div>
+      </div>
+      <div class="timeline-item" style="padding:10px 12px">
+        <div class="timeline-age">Age 28–36</div>
+        <div class="timeline-text">Venus MD — relationships, creative work, luxury goods, fashion, arts, or finance sector thrive. Career stabilizes but watch for financial disruptions. Important to save and invest during this phase.</div>
+      </div>
+      <div class="timeline-item" style="padding:10px 12px; background:#EAF3DE">
+        <div class="timeline-age" style="color:#3B6D11">Age 36–42 ⭐</div>
+        <div class="timeline-text"><strong>Peak wealth accumulation period.</strong> Sun MD activates H9 (luck, dharma, father's blessings) — significant career recognition, authority, and wealth growth. Property acquisition very likely in this window.</div>
+      </div>
+      <div class="timeline-item" style="padding:10px 12px; background:#FCEBEB">
+        <div class="timeline-age" style="color:#993C1D">Age 30–32 ⚠</div>
+        <div class="timeline-text">Saturn transit may bring challenges in career path — delays, restructuring. Important not to make impulsive career changes. This is a refinement phase, not a crisis.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Wealth Accumulation & Investments</div>
+      <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.7; margin-top:6px">
+        <strong>Strong long-term wealth potential</strong> — Mercury in H10 is a great indicator of income through intellect. Venus in H8 gives sudden gains/losses. <strong>Best investments:</strong> Fixed income, index funds, real estate (after age 30). <strong>Avoid:</strong> Speculative trading, crypto, F&O (Rahu in H5 creates gambling risk). Property: best window age 35–40.
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: RELATIONSHIPS & MARRIAGE -->
+  <div id="relationships" class="section section-anchor">
+    <div class="section-title">4 · Relationships & Marriage</div>
+
+    <div class="grid-2" style="margin-bottom:12px">
+      <div class="card">
+        <div class="card-label">Love vs Arranged Marriage</div>
+        <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.7; margin-top:6px">
+          Rahu in H5 gives attraction to unconventional or cross-cultural connections. <strong>Love connection is possible,</strong> but with complications. Arranged marriage with family input will yield better long-term stability. A hybrid (love-cum-arranged) is most likely outcome.
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-label">Marriage Timing Windows</div>
+        <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.7; margin-top:6px">
+          <strong>First possibility: Age 25–27</strong> (Ketu MD, H11 activation — social connections ripen)<br>
+          <strong>Most favorable: Age 28–31</strong> (Venus MD begins — relationships, love, partnership)<br>
+          <strong>Late window: Age 32–34</strong> also viable<br>
+          Not recommended: Before 24 (Saturn delays + personality maturation needed)
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:10px">
+      <div class="card-label">Spouse Characteristics (7th house: Pisces, Mars)</div>
+      <div style="font-size:13px; color:var(--color-text-secondary); line-height:1.7; margin-top:6px">
+        The 7th house is Pisces, co-ruled by Jupiter and Mars. Spouse is likely to be: <strong>sensitive, spiritual, creative, or working in medicine/healing/arts.</strong> A slightly older or emotionally mature partner is indicated. Mars' aspect here gives an energetic, driven partner but also some friction and ego clashes. The spouse may have a softer exterior but a strong inner resolve. Venus in H8 means the relationship will go through deep transformations — karmic, intense, but ultimately growth-oriented.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Relationship Risks to Watch</div>
+      <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.7; margin-top:6px">
+        <span class="risk">⚠</span> Emotional guardedness (Scorpio Moon) may cause communication gaps.<br>
+        <span class="risk">⚠</span> Venus in H8 — attraction to unavailable or transformative partners in early 20s.<br>
+        <span class="risk">⚠</span> Rahu in H5 — may be attracted to someone very different culturally or in terms of background.<br>
+        <span class="risk">⚠</span> High standards (Virgo) + Scorpio intensity may make finding the "right" person feel elusive.
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: DASHA ANALYSIS -->
+  <div id="dasha" class="section section-anchor">
+    <div class="section-title">5 · Current Dasha Analysis</div>
+
+    <div class="dasha-bar" style="margin-bottom:8px">
+      <div class="dasha-title">Current Mahadasha: Mercury (Budha)</div>
+      <div class="dasha-sub">Duration: ~17 years · Active period relevant to Drishti: approximately age 13–24</div>
+    </div>
+    <div class="card" style="margin-bottom:10px">
+      <div style="font-size:13px; color:var(--color-text-secondary); line-height:1.7">
+        Mercury is the Lagna lord AND sits in its own sign in H10 (career/public life). This is an <strong>exceptionally powerful Mahadasha for education, communication, intellectual achievement, and career foundation.</strong> This is the most important period of Drishti's life for academic performance. Every academic decision made now has compounding effects. Mercury MD favors: technology, writing, analysis, multiple streams of learning, language skills.
+      </div>
+    </div>
+
+    <div class="dasha-bar" style="margin-bottom:8px">
+      <div class="dasha-title">Current Antardasha: Mercury-Saturn (approx. 2024–2026)</div>
+      <div class="dasha-sub">Saturn in Lagna creates a structured, disciplined sub-period</div>
+    </div>
+    <div class="card" style="margin-bottom:10px">
+      <div style="font-size:13px; color:var(--color-text-secondary); line-height:1.7">
+        Mercury-Saturn Antardasha is a period of <strong>hard work, discipline, and laying foundations.</strong> Saturn in Lagna means this is felt as pressure, strictness, and responsibility. Academic workload increases. Health (especially digestion and stress) needs attention. Do NOT rush — Saturn rewards patience. This sub-period builds the discipline for future success.
+      </div>
+    </div>
+
+    <div class="highlight-box">
+      <div class="highlight-text">
+        <strong>Current opportunities:</strong> Board exam/competitive exam preparation, online skill-building, research projects, debate/communication activities. Traveling for educational purposes is favored.<br><br>
+        <strong>Current challenges:</strong> Overthinking, self-criticism, anxiety about future, health stress (Saturn in Lagna). Guard against exhaustion and burnout. Emotional isolation tendency is high right now — make effort to maintain supportive friendships.
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 6: 5-YEAR FORECAST -->
+  <div id="forecast" class="section section-anchor">
+    <div class="section-title">6 · 5-Year Forecast (2025–2030)</div>
+
+    <table style="margin-bottom:10px">
+      <thead>
+        <tr>
+          <th>Year / Age</th>
+          <th>Career</th>
+          <th>Money</th>
+          <th>Relationships</th>
+          <th>Health</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>2025<br>Age 16</strong></td>
+          <td>Board exam year — critical academic foundation. Mercury MD strongly supports.</td>
+          <td>Dependent on family. Focus on scholarships.</td>
+          <td>Deep friendships form. Emotional intensity.</td>
+          <td>Moderate — stress-related issues. Watch digestion.</td>
+        </tr>
+        <tr class="best-year">
+          <td><strong>2026 ⭐<br>Age 17</strong></td>
+          <td>Best academic year. College entrance, JEE/NEET/CUET prep shows results. Clarity on career direction.</td>
+          <td>Scholarship or merit-based opportunity likely.</td>
+          <td>New social environment, exciting connections.</td>
+          <td>Generally good. Energy levels improve.</td>
+        </tr>
+        <tr>
+          <td><strong>2027<br>Age 18</strong></td>
+          <td>College life begins. Mercury-Ketu antardasha brings spiritual/unconventional ideas into career thinking.</td>
+          <td>First experience managing personal finances.</td>
+          <td>New relationships, some intensity. Guard emotions.</td>
+          <td>Nervous system sensitivity. Avoid overworking.</td>
+        </tr>
+        <tr class="tough-year">
+          <td><strong>2028 ⚠<br>Age 19</strong></td>
+          <td>Saturn transit creates pressure, delays. Course-correction may be needed. Don't panic — this is growth.</td>
+          <td>Financial strain possible. Avoid big loans/risks.</td>
+          <td>A significant relationship may face turbulence.</td>
+          <td>Weakest year — manage stress, sleep, diet.</td>
+        </tr>
+        <tr>
+          <td><strong>2029<br>Age 20</strong></td>
+          <td>Recovery and stabilization. Ketu MD begins soon — networking, foreign connections open up.</td>
+          <td>Income streams slowly emerge. Part-time work possible.</td>
+          <td>More clarity in relationships. Emotional maturity rises.</td>
+          <td>Improving steadily. Yoga/meditation very beneficial.</td>
+        </tr>
+        <tr>
+          <td><strong>2030<br>Age 21</strong></td>
+          <td>Ketu MD active — gains through networks, unconventional paths. First internship/professional role.</td>
+          <td>Moderate growth. Savings habit should begin now.</td>
+          <td>Stable, grounded connections forming.</td>
+          <td>Good overall. Energy channels properly now.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="grid-2">
+      <div class="card" style="border-left:3px solid #639922">
+        <div class="card-label" style="color:#3B6D11">Best Year: 2026 (Age 17)</div>
+        <div style="font-size:12px; color:var(--color-text-secondary); margin-top:5px; line-height:1.6">Mercury MD at full strength. Academic excellence, college entry, scholarships, and intellectual recognition at peak. This year defines the trajectory of the next decade.</div>
+      </div>
+      <div class="card" style="border-left:3px solid #E24B4A">
+        <div class="card-label" style="color:#A32D2D">Toughest Year: 2028 (Age 19)</div>
+        <div style="font-size:12px; color:var(--color-text-secondary); margin-top:5px; line-height:1.6">Saturn transit + Mercury-Saturn sub-period creates friction. Academic pressure, relationship turbulence, health stress. Prepare in 2026–27 so this year doesn't derail you.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 7: REMEDIES -->
+  <div id="remedies" class="section section-anchor">
+    <div class="section-title">7 · Remedies (Astrologically Justified)</div>
+
+    <div class="remedy-block">
+      <div class="remedy-title">🕉 Mantras</div>
+      <div class="remedy-text">
+        <strong>Primary — For Mercury (Lagna lord + 10th lord):</strong> "Om Budhaya Namaha" — 108 times on Wednesdays<br>
+        <strong>For Saturn (in Lagna — to reduce delay and health issues):</strong> "Om Shanaischaraya Namaha" — 108 times on Saturdays<br>
+        <strong>For Moon (debilitated — emotional stability):</strong> "Om Chandraya Namaha" or Chandra Gayatri — 108 times on Mondays<br>
+        <strong>Mahamrityunjaya Mantra:</strong> 11 repetitions daily — strongly indicated for Saturn in Lagna + health protection
+      </div>
+    </div>
+
+    <div class="remedy-block">
+      <div class="remedy-title">🤲 Donations (Dana)</div>
+      <div class="remedy-text">
+        <strong>Wednesdays:</strong> Green moong dal, green vegetables to a Brahmin or student in need — strengthens Mercury<br>
+        <strong>Saturdays:</strong> Black sesame seeds, mustard oil lamp at Shani temple — pacifies Saturn in Lagna<br>
+        <strong>Mondays:</strong> Milk, white rice, or white sweets to a cow or elderly woman — strengthens Moon<br>
+        <strong>Avoid:</strong> Donating on Tuesdays without proper guidance (Mars-ruled, H7 lord)
+      </div>
+    </div>
+
+    <div class="remedy-block">
+      <div class="remedy-title">🧘 Spiritual Practices</div>
+      <div class="remedy-text">
+        <strong>Daily:</strong> 10–15 minutes of breath-focused meditation (pranayama) — addresses Saturn in Lagna anxiety and Moon in Scorpio emotional intensity<br>
+        <strong>Weekly:</strong> Reading or listening to Vishnu Sahasranama on Thursdays (Jupiter pacification)<br>
+        <strong>Monthly:</strong> Pradosh Vrat (Trayodashi tithi) — recommended for Saturn + Moon balance<br>
+        <strong>Jyeshtha Nakshatra:</strong> Offer water and white flowers to a river or tulsi plant on Sundays — honors the Nakshatra deity
+      </div>
+    </div>
+
+    <div class="remedy-block">
+      <div class="remedy-title">💎 Gemstones (Only where strongly supported)</div>
+      <div class="remedy-text">
+        <strong>Emerald (Panna) — Mercury:</strong> <span style="color:#3B6D11">Strongly recommended.</span> Mercury is Lagna lord + 10th lord in own sign. Wearing a natural 5–7 ratti emerald in silver on the right small finger on a Wednesday during Mercury hora can significantly enhance intellect, career, and communication.<br><br>
+        <strong>NOT recommended without expert consultation:</strong> Blue Sapphire (Saturn is technically malefic to this chart despite being in Lagna), Diamond (Venus in H8 is complex), Yellow Sapphire (Jupiter debilitated).<br><br>
+        <strong>Safe alternative to gemstones:</strong> Wearing green on Wednesdays, carrying a green tourmaline (semi-precious) as a substitute.
+      </div>
+    </div>
+
+    <div class="highlight-box">
+      <div class="highlight-text">
+        <strong>Note on timing:</strong> All remedies are most effective when started at the beginning of a Mercury hora on a Wednesday, during a waxing moon (Shukla Paksha). The birth time is approximate — a time-rectification consultation is recommended before purchasing gemstones. Planetary positions above are calculated for Patna (25.6°N, 85.1°E) using Lahiri ayanamsha.
+      </div>
+    </div>
+  </div>
+</div>
