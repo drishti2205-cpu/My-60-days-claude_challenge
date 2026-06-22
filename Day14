@@ -1,0 +1,26 @@
+# Day 14 – AI Job Red Flag Detector
+
+## Objective
+Use AI to analyze job descriptions and company information to identify hiring risks and workplace red flags.
+
+## Tools Used
+- Claude AI
+- GitHub
+
+## Steps Performed
+1. Collected a Job Description.
+2. Gathered company information.
+3. Used the AI Job Red Flag Detector prompt.
+4. Generated the report.
+5. Reviewed the risk score and findings.
+6. Took screenshots.
+7. Uploaded everything to GitHub.
+
+## Key Learnings
+- Learned to identify toxic workplace indicators.
+- Understood hiring risks.
+- Learned how to evaluate remote job authenticity.
+- Improved job-search decision-making.
+
+## Outcome
+Successfully analyzed job opportunities and detected potential red flags using AI.
